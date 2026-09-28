@@ -57,7 +57,7 @@ python scripts/update_scores.py
 
 ## Admin — Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-09-28 14:26 UTC - Threshold 250 - 0/78 with points_
+_Updated 2026-09-28 08:56 UTC - Threshold 250 - 0/78 with points_
 
 | Rank | Fellow | Total | Status |
 |---:|---|---:|---|
