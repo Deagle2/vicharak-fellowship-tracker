@@ -1,25 +1,25 @@
-# Fellowship Scores - 2026-09-28 08:56 UTC
+# Fellowship Scores - 2026-09-28 09:06 UTC
 
 Threshold: 250 (ELIGIBLE >= 250)
 
 | Rank | Fellow | GitHub | LinkedIn | Blog | X | Workshop | Other | Total | Status |
 |---:|---|---|---|---|---|---|---|---|---|
-| 1 | Abhishek Jain | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 2 | Adeep AG | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 3 | Aditya Nukala | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 4 | Aditya Reddy | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 5 | Amaan Pathan | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 6 | Amrutha M | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 7 | Anandu Rajan | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 8 | Ankit Choudhury | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 9 | Ankit raj | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 10 | ANNESTIO PIETY CASTANHA | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 11 | Anusheel Singh | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 12 | Appu Raj | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 13 | Arafat Babar | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 14 | Arijit Ghosh | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 15 | Arjav Sanjaybhai Khunt | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 16 | Arjun A | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 1 | Arjun A | 2 | 1 | 6 | 2 | 1 | 7 | **905** | ELIGIBLE |
+| 2 | Abhishek Jain | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 3 | Adeep AG | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 4 | Aditya Nukala | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 5 | Aditya Reddy | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 6 | Amaan Pathan | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 7 | Amrutha M | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 8 | Anandu Rajan | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 9 | Ankit Choudhury | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 10 | Ankit raj | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 11 | ANNESTIO PIETY CASTANHA | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 12 | Anusheel Singh | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 13 | Appu Raj | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 14 | Arafat Babar | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 15 | Arijit Ghosh | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 16 | Arjav Sanjaybhai Khunt | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 17 | Arjun Rajesh | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 18 | Arush Dwivedi | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 19 | Ashish Kumar Pal | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |

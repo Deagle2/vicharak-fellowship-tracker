@@ -1,1 +1,156 @@
-{}
+{
+  "Arjun A": [
+    {
+      "type": "Blog",
+      "points": 40,
+      "title": "Edge test - Blog 1 - Axon Lite build log",
+      "link": "https://example.com/edge-arjun-blog1-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Blog_2026-09-28.json"
+    },
+    {
+      "type": "Blog",
+      "points": 40,
+      "title": "Edge test - Blog 2 - Vaaman power test",
+      "link": "https://example.com/edge-arjun-blog2-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Blog_2026-09-28_02.json"
+    },
+    {
+      "type": "Blog",
+      "points": 40,
+      "title": "Edge test - Blog 3 - lowercase fellow name",
+      "link": "https://example.com/edge-arjun-blog3-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Blog_2026-09-28_03.json"
+    },
+    {
+      "type": "Blog",
+      "points": 40,
+      "title": "Edge test - Blog 4 - Shrike boot time",
+      "link": "https://example.com/edge-arjun-blog4-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Blog_2026-09-28_04.json"
+    },
+    {
+      "type": "Blog",
+      "points": 40,
+      "title": "Edge test - Blog 5 - FPGA vs GPU notes",
+      "link": "https://example.com/edge-arjun-blog5-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Blog_2026-09-28_05.json"
+    },
+    {
+      "type": "Blog",
+      "points": 40,
+      "title": "Edge test - Blog 6 - pushes columns past 5",
+      "link": "https://example.com/edge-arjun-blog6-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Blog_2026-09-28_06.json"
+    },
+    {
+      "type": "Bug",
+      "points": 25,
+      "title": "Edge test - Bug - Axon boot fix",
+      "link": "https://example.com/edge-arjun-bug-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Bug_2026-09-28.json"
+    },
+    {
+      "type": "Community",
+      "points": 20,
+      "title": "Edge test - Community - Discord help",
+      "link": "https://example.com/edge-arjun-community-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Community_2026-09-28.json"
+    },
+    {
+      "type": "Demo",
+      "points": 50,
+      "title": "Edge test - Demo - Axon live demo",
+      "link": "https://example.com/edge-arjun-demo-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Demo_2026-09-28.json"
+    },
+    {
+      "type": "Documentation",
+      "points": 30,
+      "title": "Edge test - Documentation - Axon setup guide",
+      "link": "https://example.com/edge-arjun-documentation-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Documentation_2026-09-28.json"
+    },
+    {
+      "type": "Feature",
+      "points": 60,
+      "title": "Edge test - Feature - Axon GPIO request",
+      "link": "https://example.com/edge-arjun-feature-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Feature_2026-09-28.json"
+    },
+    {
+      "type": "Linkedin",
+      "points": 40,
+      "title": "Edge test - Linkedin - Axon Lite post",
+      "link": "https://example.com/edge-arjun-linkedin-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Linkedin_2026-09-28.json"
+    },
+    {
+      "type": "Project",
+      "points": 70,
+      "title": "Edge test - Project 1 - Axon demo repo",
+      "link": "https://example.com/edge-arjun-project1-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Project_2026-09-28.json"
+    },
+    {
+      "type": "Project",
+      "points": 70,
+      "title": "Edge test - github alias maps to Project",
+      "link": "https://example.com/edge-arjun-github-alias-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Project_2026-09-28_02.json"
+    },
+    {
+      "type": "Referral",
+      "points": 30,
+      "title": "Edge test - Referral - Campus referral",
+      "link": "https://example.com/edge-arjun-referral-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Referral_2026-09-28.json"
+    },
+    {
+      "type": "Video",
+      "points": 90,
+      "title": "Edge test - Video - Axon unboxing",
+      "link": "https://example.com/edge-arjun-video-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Video_2026-09-28.json"
+    },
+    {
+      "type": "Workshop",
+      "points": 100,
+      "title": "Edge test - Workshop - Axon hands-on",
+      "link": "https://example.com/edge-arjun-workshop-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_Workshop_2026-09-28.json"
+    },
+    {
+      "type": "X",
+      "points": 40,
+      "title": "Edge test - X 1 - Axon Lite thread",
+      "link": "https://example.com/edge-arjun-x1-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_X_2026-09-28.json"
+    },
+    {
+      "type": "X",
+      "points": 40,
+      "title": "Edge test - twitter alias maps to X",
+      "link": "https://example.com/edge-arjun-twitter-alias-28sept2026",
+      "date": "2026-09-28",
+      "file": "Arjun_A_X_2026-09-28_02.json"
+    }
+  ]
+}
