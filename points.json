@@ -11,6 +11,7 @@
   "Feature": 60,
   "Referral": 30,
   "Demo": 50,
+  "PurchaseProof": 0,
   "_aliases": {
     "blog": "Blog",
     "technical blog": "Blog",
@@ -38,7 +39,13 @@
     "customer referral": "Referral",
     "customer": "Referral",
     "demo": "Demo",
-    "product demo": "Demo"
+    "product demo": "Demo",
+    "purchaseproof": "PurchaseProof",
+    "purchase proof": "PurchaseProof",
+    "kit proof": "PurchaseProof",
+    "kit": "PurchaseProof",
+    "dev kit": "PurchaseProof",
+    "devkit": "PurchaseProof"
   },
   "_threshold": 250
 }

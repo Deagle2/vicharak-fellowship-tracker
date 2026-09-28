@@ -1,6 +1,6 @@
 {
   "fellow": "Full Name exactly as in fellows.csv, e.g. Arjun A",
-  "type": "Blog | Linkedin | X | Project | Workshop | Documentation | Video | Community | Bug | Feature | Referral | Demo",
+  "type": "PurchaseProof | Blog | Linkedin | X | Project | Workshop | Documentation | Video | Community | Bug | Feature | Referral | Demo",
   "title": "Short title of your post / repo / workshop",
   "link": "https://...",
   "date": "YYYY-MM-DD"

@@ -3,7 +3,7 @@
 Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub Action auto-allocates links + points.
 
 Source of truth for fellows: `fellows.csv` (fetched from `Fellowship program.xlsx` on PC — 78 unique fellows, de-duplicated).
-Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. Threshold = 250.
+Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 (first-PR kit gate, flips Kit to YES). Threshold = 250.
 
 ## Join (purchase proof required)
 Public to view, gated to edit. To get edit access: Issues → `Request repo access` → attach `<Your-Name>_proof.png` (board / invoice). Bot checks name in `fellows.csv` + proof attached. Admin adds `approved` → bot invites you. Full steps: [`docs/JOIN.md`](docs/JOIN.md).
@@ -57,30 +57,30 @@ python scripts/update_scores.py
 
 ## Admin — Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-09-28 08:56 UTC - Threshold 250 - 0/78 with points_
+_Updated 2026-09-28 14:42 UTC - Threshold 250 - 0/78 with points_
 
-| Rank | Fellow | Total | Status |
-|---:|---|---:|---|
-| 1 | Abhishek Jain | **0** | BELOW |
-| 2 | Adeep AG | **0** | BELOW |
-| 3 | Aditya Nukala | **0** | BELOW |
-| 4 | Aditya Reddy | **0** | BELOW |
-| 5 | Amaan Pathan | **0** | BELOW |
-| 6 | Amrutha M | **0** | BELOW |
-| 7 | Anandu Rajan | **0** | BELOW |
-| 8 | Ankit Choudhury | **0** | BELOW |
-| 9 | Ankit raj | **0** | BELOW |
-| 10 | ANNESTIO PIETY CASTANHA | **0** | BELOW |
-| 11 | Anusheel Singh | **0** | BELOW |
-| 12 | Appu Raj | **0** | BELOW |
-| 13 | Arafat Babar | **0** | BELOW |
-| 14 | Arijit Ghosh | **0** | BELOW |
-| 15 | Arjav Sanjaybhai Khunt | **0** | BELOW |
-| 16 | Arjun A | **0** | BELOW |
-| 17 | Arjun Rajesh | **0** | BELOW |
-| 18 | Arush Dwivedi | **0** | BELOW |
-| 19 | Ashish Kumar Pal | **0** | BELOW |
-| 20 | Ashutosh Mishra | **0** | BELOW |
+| Rank | Fellow | Kit | Total | Status |
+|---:|---|---|---:|---|
+| 1 | Abhishek Jain | NO | **0** | BELOW |
+| 2 | Adeep AG | NO | **0** | BELOW |
+| 3 | Aditya Nukala | NO | **0** | BELOW |
+| 4 | Aditya Reddy | NO | **0** | BELOW |
+| 5 | Amaan Pathan | NO | **0** | BELOW |
+| 6 | Amrutha M | NO | **0** | BELOW |
+| 7 | Anandu Rajan | NO | **0** | BELOW |
+| 8 | Ankit Choudhury | NO | **0** | BELOW |
+| 9 | Ankit raj | NO | **0** | BELOW |
+| 10 | ANNESTIO PIETY CASTANHA | NO | **0** | BELOW |
+| 11 | Anusheel Singh | NO | **0** | BELOW |
+| 12 | Appu Raj | NO | **0** | BELOW |
+| 13 | Arafat Babar | NO | **0** | BELOW |
+| 14 | Arijit Ghosh | NO | **0** | BELOW |
+| 15 | Arjav Sanjaybhai Khunt | NO | **0** | BELOW |
+| 16 | Arjun A | NO | **0** | BELOW |
+| 17 | Arjun Rajesh | NO | **0** | BELOW |
+| 18 | Arush Dwivedi | NO | **0** | BELOW |
+| 19 | Ashish Kumar Pal | NO | **0** | BELOW |
+| 20 | Ashutosh Mishra | NO | **0** | BELOW |
 
 _Showing top 20 of 78 - full list in [SCORES.md](SCORES.md)_
 <!-- SCORES_END -->

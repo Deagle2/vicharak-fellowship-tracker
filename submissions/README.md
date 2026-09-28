@@ -2,11 +2,11 @@
 
 1. Copy `TEMPLATE.json` to a new file named: `<Your-Full-Name-With-Underscores>_<Type>_<YYYY-MM-DD>.json`
    - Name must match `fellows.csv` (case-insensitive), e.g. `Arjun_A`.
-   - Type must be one of: Blog, Linkedin, X, Project, Workshop, Documentation, Video, Community, Bug, Feature, Referral, Demo.
+   - Type must be one of: PurchaseProof, Blog, Linkedin, X, Project, Workshop, Documentation, Video, Community, Bug, Feature, Referral, Demo.
+   - **First PR must be PurchaseProof**: your dev-kit proof (board photo / invoice image link). Title it `[PurchaseProof] Your Name`. Until accepted, Kit shows NO in the score block.
 2. Fill all 5 fields. Link must start with http:// or https://.
 3. Open a Pull Request. PR title format (important):
-   `[Blog] Your Name — short title + link`
-   Valid prefixes: `[Blog]` `[Linkedin]` `[X]` `[Project]` `[Workshop]` `[Documentation]` `[Video]` `[Community]` `[Bug]` `[Feature]` `[Referral]` `[Demo]`
+   `[PurchaseProof]` (first PR only) `[Blog]` `[Linkedin]` `[X]` `[Project]` `[Workshop]` `[Documentation]` `[Video]` `[Community]` `[Bug]` `[Feature]` `[Referral]` `[Demo]`
 4. One submission = one JSON file = one PR (easier to accept/reject). Do not bundle multiple links in one file.
 5. If maintainer merges, points auto-allocate. If closed, no points.
 

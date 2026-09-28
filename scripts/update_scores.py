@@ -38,7 +38,6 @@ def canon_type(raw, points, aliases):
     low = r.lower()
     if low in aliases:
         return aliases[low]
-    # fuzzy: project repo -> Project, github -> Project
     if "github" in low or "project" in low:
         return "Project"
     if "linked" in low:
@@ -49,6 +48,8 @@ def canon_type(raw, points, aliases):
         return "Blog"
     if "workshop" in low:
         return "Workshop"
+    if "purchase" in low or "kit" in low or low == "proof":
+        return "PurchaseProof"
     return None
 
 def safe_name(n):
@@ -135,11 +136,11 @@ def main():
             pts = len(items) * points.get(ctype, 0)
             per_row_points[row_label] = (items, pts)
             total += pts
-        # other types (outside screenshot rows) still count
+        # other types (outside screenshot rows) still count (PurchaseProof is a 0-pt gate, tracked separately)
         other_count = 0
         other_pts = 0
         for ctype, items in d.items():
-            if ctype not in CANONICAL_FOR_ROW.values():
+            if ctype not in CANONICAL_FOR_ROW.values() and ctype != "PurchaseProof":
                 other_count += len(items)
                 p = len(items) * points.get(ctype, 0)
                 other_pts += p
@@ -155,12 +156,17 @@ def main():
                 links = [it["link"] for it in items]
                 links += [""] * (max_n - len(links))
                 w.writerow([row_label] + links + [pts])
+            proofs = d.get("PurchaseProof", [])
+            plinks = [it["link"] for it in proofs][:max_n]
+            plinks += [""] * (max_n - len(plinks))
+            w.writerow(["KitProof"] + plinks + ["SUBMITTED" if proofs else "-"])
             w.writerow(["Total"] + [""] * max_n + [total])
         # summary
         def cnt(t):
             return len(d.get(t, []))
         summary_rows.append({
             "Fellow": display,
+            "PurchaseProof": "YES" if d.get("PurchaseProof") else "NO",
             "Github(Project)_count": cnt("Project"),
             "Linkedin_count": cnt("Linkedin"),
             "Blog_count": cnt("Blog"),
@@ -172,7 +178,7 @@ def main():
         })
 
     with open(SUMMARY_CSV, "w", newline="", encoding="utf-8") as f:
-        fields = ["Fellow", "Github(Project)_count", "Linkedin_count", "Blog_count", "X_count", "Workshop_count", "Other_count", "Total_Points", thresh_col]
+        fields = ["Fellow", "PurchaseProof", "Github(Project)_count", "Linkedin_count", "Blog_count", "X_count", "Workshop_count", "Other_count", "Total_Points", thresh_col]
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(summary_rows)
@@ -181,19 +187,19 @@ def main():
     ranked = sorted(summary_rows, key=lambda r: (-r["Total_Points"], r["Fellow"].lower()))
     lines = [f"# Fellowship Scores - {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC",
              "", f"Threshold: {threshold} (ELIGIBLE >= {threshold})",
-             "", "| Rank | Fellow | GitHub | LinkedIn | Blog | X | Workshop | Other | Total | Status |",
-             "|---:|---|---|---|---|---|---|---|---|---|"]
+             "", "| Rank | Fellow | Kit | GitHub | LinkedIn | Blog | X | Workshop | Other | Total | Status |",
+             "|---:|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(ranked, 1):
         # only show non-zero OR top 30 to keep README readable? show all with points, collapse zeros
-        lines.append(f"| {i} | {r['Fellow']} | {r['Github(Project)_count']} | {r['Linkedin_count']} | {r['Blog_count']} | {r['X_count']} | {r['Workshop_count']} | {r['Other_count']} | **{r['Total_Points']}** | {r[thresh_col]} |")
+        lines.append(f"| {i} | {r['Fellow']} | {r['PurchaseProof']} | {r['Github(Project)_count']} | {r['Linkedin_count']} | {r['Blog_count']} | {r['X_count']} | {r['Workshop_count']} | {r['Other_count']} | **{r['Total_Points']}** | {r[thresh_col]} |")
     lines += ["", f"_Source: allocations/summary.csv - {len(ranked)} fellows - Points: " + ", ".join(f"{k}={v}" for k, v in points.items())]
     SCORES_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     # Patch README block between SCORES_START/END (show top 20 + link to full)
     try:
         top = ranked[:20]
-        table = ["| Rank | Fellow | Total | Status |", "|---:|---|---:|---|"]
+        table = ["| Rank | Fellow | Kit | Total | Status |", "|---:|---|---|---:|---|"]
         for i, r in enumerate(top, 1):
-            table.append(f"| {i} | {r['Fellow']} | **{r['Total_Points']}** | {r[thresh_col]} |")
+            table.append(f"| {i} | {r['Fellow']} | {r['PurchaseProof']} | **{r['Total_Points']}** | {r[thresh_col]} |")
         block = (f"_Updated {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC - Threshold {threshold} - {len([r for r in ranked if r['Total_Points']>0])}/{len(ranked)} with points_\n\n"
                  + "\n".join(table) + f"\n\n_Showing top 20 of {len(ranked)} - full list in [SCORES.md](SCORES.md)_")
         txt = README_MD.read_text(encoding="utf-8")
@@ -251,9 +257,9 @@ def main():
                Paragraph(f"Generated {datetime.now().strftime('%Y-%m-%d %H:%M')} | Threshold {threshold} | Points: " +
                          ", ".join(f"{k}={v}" for k, v in points.items()), styles["Normal"]), Spacer(1, 12)]
         # summary table
-        data = [["Fellow", "GitHub", "LinkedIn", "Blog", "X", "Workshop", "Other", "Total", "Status"]]
+        data = [["Fellow", "Kit", "GitHub", "LinkedIn", "Blog", "X", "Workshop", "Other", "Total", "Status"]]
         for r in summary_rows:
-            data.append([r["Fellow"], r["Github(Project)_count"], r["Linkedin_count"], r["Blog_count"], r["X_count"], r["Workshop_count"], r["Other_count"], r["Total_Points"], r[thresh_col]])
+            data.append([r["Fellow"], r["PurchaseProof"], r["Github(Project)_count"], r["Linkedin_count"], r["Blog_count"], r["X_count"], r["Workshop_count"], r["Other_count"], r["Total_Points"], r[thresh_col]])
         t = Table(data, repeatRows=1)
         t.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
                                ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),

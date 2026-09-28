@@ -1,7 +1,8 @@
 ## Submission PR — required format
 
-**Title must start with one of:** `[Blog]` `[Linkedin]` `[X]` `[Project]` `[Workshop]` `[Documentation]` `[Video]` `[Community]` `[Bug]` `[Feature]` `[Referral]` `[Demo]`
+**Title must start with one of:** `[PurchaseProof]` `[Blog]` `[Linkedin]` `[X]` `[Project]` `[Workshop]` `[Documentation]` `[Video]` `[Community]` `[Bug]` `[Feature]` `[Referral]` `[Demo]`
 Example: `[Blog] Arjun A — My Axon Lite build https://medium.com/...`
+First PR from any fellow must be `[PurchaseProof] Your Name — board/invoice image link` (0 pts, flips Kit to YES in the score block).
 
 **Checklist (maintainer merges = accept = points):**
 - [ ] Added ONE file: `submissions/<Name>_<Type>_<YYYY-MM-DD>.json` (copied from TEMPLATE.json)
