@@ -25,7 +25,7 @@ CANONICAL_FOR_ROW = {"Github": "Project", "Linkedin": "Linkedin", "Blog": "Blog"
 def load_points():
     data = json.loads(POINTS_JSON.read_text(encoding="utf-8"))
     aliases = {k.lower(): v for k, v in data.get("_aliases", {}).items()}
-    threshold = data.get("_threshold", 250)
+    threshold = data.get("_threshold", 600)
     points = {k: v for k, v in data.items() if not k.startswith("_")}
     return points, aliases, threshold
 
@@ -71,6 +71,7 @@ def load_fellows():
 
 def main():
     points, aliases, threshold = load_points()
+    thresh_col = f"Threshold_{threshold}"
     fellows, meta = load_fellows()
     # fellow_key -> {canon_type -> [(link,title,date,srcfile)]}
     store = {k: {} for k in fellows}
@@ -167,11 +168,11 @@ def main():
             "Workshop_count": cnt("Workshop"),
             "Other_count": other_count,
             "Total_Points": total,
-            "Threshold_250": "ELIGIBLE" if total >= threshold else "BELOW",
+            thresh_col: "ELIGIBLE" if total >= threshold else "BELOW",
         })
 
     with open(SUMMARY_CSV, "w", newline="", encoding="utf-8") as f:
-        fields = ["Fellow", "Github(Project)_count", "Linkedin_count", "Blog_count", "X_count", "Workshop_count", "Other_count", "Total_Points", "Threshold_250"]
+        fields = ["Fellow", "Github(Project)_count", "Linkedin_count", "Blog_count", "X_count", "Workshop_count", "Other_count", "Total_Points", thresh_col]
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(summary_rows)
@@ -184,7 +185,7 @@ def main():
              "|---:|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(ranked, 1):
         # only show non-zero OR top 30 to keep README readable? show all with points, collapse zeros
-        lines.append(f"| {i} | {r['Fellow']} | {r['Github(Project)_count']} | {r['Linkedin_count']} | {r['Blog_count']} | {r['X_count']} | {r['Workshop_count']} | {r['Other_count']} | **{r['Total_Points']}** | {r['Threshold_250']} |")
+        lines.append(f"| {i} | {r['Fellow']} | {r['Github(Project)_count']} | {r['Linkedin_count']} | {r['Blog_count']} | {r['X_count']} | {r['Workshop_count']} | {r['Other_count']} | **{r['Total_Points']}** | {r[thresh_col]} |")
     lines += ["", f"_Source: allocations/summary.csv - {len(ranked)} fellows - Points: " + ", ".join(f"{k}={v}" for k, v in points.items())]
     SCORES_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     # Patch README block between SCORES_START/END (show top 20 + link to full)
@@ -192,7 +193,7 @@ def main():
         top = ranked[:20]
         table = ["| Rank | Fellow | Total | Status |", "|---:|---|---:|---|"]
         for i, r in enumerate(top, 1):
-            table.append(f"| {i} | {r['Fellow']} | **{r['Total_Points']}** | {r['Threshold_250']} |")
+            table.append(f"| {i} | {r['Fellow']} | **{r['Total_Points']}** | {r[thresh_col]} |")
         block = (f"_Updated {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC - Threshold {threshold} - {len([r for r in ranked if r['Total_Points']>0])}/{len(ranked)} with points_\n\n"
                  + "\n".join(table) + f"\n\n_Showing top 20 of {len(ranked)} - full list in [SCORES.md](SCORES.md)_")
         txt = README_MD.read_text(encoding="utf-8")
@@ -220,7 +221,7 @@ def main():
         # summary table
         data = [["Fellow", "GitHub", "LinkedIn", "Blog", "X", "Workshop", "Other", "Total", "Status"]]
         for r in summary_rows:
-            data.append([r["Fellow"], r["Github(Project)_count"], r["Linkedin_count"], r["Blog_count"], r["X_count"], r["Workshop_count"], r["Other_count"], r["Total_Points"], r["Threshold_250"]])
+            data.append([r["Fellow"], r["Github(Project)_count"], r["Linkedin_count"], r["Blog_count"], r["X_count"], r["Workshop_count"], r["Other_count"], r["Total_Points"], r[thresh_col]])
         t = Table(data, repeatRows=1)
         t.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
                                ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),

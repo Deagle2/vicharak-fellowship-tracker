@@ -3,7 +3,7 @@
 Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub Action auto-allocates links + points.
 
 Source of truth for fellows: `fellows.csv` (fetched from `Fellowship program.xlsx` on PC — 78 unique fellows, de-duplicated).
-Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. Threshold = 250 (6-month checkpoint).
+Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. Threshold = 600.
 
 ## Flow
 1. Student: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_<Type>_<YYYY-MM-DD>.json`
@@ -32,7 +32,7 @@ Total,,,,,,<total>
 ```
 - 5 link columns minimum (extends if >5 in any category).
 - Points = count × per-type points.
-- `Total` = sum. `summary.csv` adds threshold flag (>=250 eligible).
+- `Total` = sum. `summary.csv` adds threshold flag (>=600 ELIGIBLE).
 
 ## Repo map
 - `fellows.csv` — canonical list (do not edit manually, re-export from xlsx if needed)
@@ -54,11 +54,11 @@ python scripts/update_scores.py
 
 ## Admin — Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-09-28 06:42 UTC - Threshold 250 - 1/78 with points_
+_Updated 2026-09-28 12:23 UTC - Threshold 600 - 1/78 with points_
 
 | Rank | Fellow | Total | Status |
 |---:|---|---:|---|
-| 1 | Arjun A | **595** | ELIGIBLE |
+| 1 | Arjun A | **595** | BELOW |
 | 2 | Abhishek Jain | **0** | BELOW |
 | 3 | Adeep AG | **0** | BELOW |
 | 4 | Aditya Nukala | **0** | BELOW |
