@@ -1,25 +1,25 @@
-# Fellowship Scores - 2026-09-28 14:42 UTC
+# Fellowship Scores - 2026-09-28 14:44 UTC
 
 Threshold: 250 (ELIGIBLE >= 250)
 
 | Rank | Fellow | Kit | GitHub | LinkedIn | Blog | X | Workshop | Other | Total | Status |
 |---:|---|---|---|---|---|---|---|---|---|---|
-| 1 | Abhishek Jain | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 2 | Adeep AG | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 3 | Aditya Nukala | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 4 | Aditya Reddy | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 5 | Amaan Pathan | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 6 | Amrutha M | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 7 | Anandu Rajan | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 8 | Ankit Choudhury | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 9 | Ankit raj | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 10 | ANNESTIO PIETY CASTANHA | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 11 | Anusheel Singh | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 12 | Appu Raj | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 13 | Arafat Babar | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 14 | Arijit Ghosh | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 15 | Arjav Sanjaybhai Khunt | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 16 | Arjun A | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 1 | Arjun A | NO | 2 | 1 | 6 | 2 | 1 | 7 | **905** | ELIGIBLE |
+| 2 | Abhishek Jain | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 3 | Adeep AG | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 4 | Aditya Nukala | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 5 | Aditya Reddy | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 6 | Amaan Pathan | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 7 | Amrutha M | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 8 | Anandu Rajan | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 9 | Ankit Choudhury | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 10 | Ankit raj | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 11 | ANNESTIO PIETY CASTANHA | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 12 | Anusheel Singh | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 13 | Appu Raj | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 14 | Arafat Babar | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 15 | Arijit Ghosh | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 16 | Arjav Sanjaybhai Khunt | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 17 | Arjun Rajesh | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 18 | Arush Dwivedi | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 19 | Ashish Kumar Pal | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
