@@ -57,11 +57,11 @@ python scripts/update_scores.py
 
 ## Admin — Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-09-28 09:14 UTC - Threshold 250 - 1/78 with points_
+_Updated 2026-09-28 09:43 UTC - Threshold 250 - 1/78 with points_
 
 | Rank | Fellow | Kit | Total | Status |
 |---:|---|---|---:|---|
-| 1 | Arjun A | NO | **905** | ELIGIBLE |
+| 1 | Arjun A | YES | **905** | ELIGIBLE |
 | 2 | Abhishek Jain | NO | **0** | BELOW |
 | 3 | Adeep AG | NO | **0** | BELOW |
 | 4 | Aditya Nukala | NO | **0** | BELOW |

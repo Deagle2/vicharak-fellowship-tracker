@@ -1,8 +1,8 @@
-# Submissions by Fellow - 2026-09-28 09:14 UTC
+# Submissions by Fellow - 2026-09-28 09:43 UTC
 
-_Total: 19 accepted submissions across 1/78 fellows_
+_Total: 21 accepted submissions across 1/78 fellows_
 
-## Arjun A - 19 submission(s), 905 pts
+## Arjun A - 21 submission(s), 905 pts
 - [Blog] Edge test - Blog 1 - Axon Lite build log (2026-09-28) - https://example.com/edge-arjun-blog1-28sept2026 - 40 pts - `Arjun_A_Blog_2026-09-28.json`
 - [Blog] Edge test - Blog 2 - Vaaman power test (2026-09-28) - https://example.com/edge-arjun-blog2-28sept2026 - 40 pts - `Arjun_A_Blog_2026-09-28_02.json`
 - [Blog] Edge test - Blog 3 - lowercase fellow name (2026-09-28) - https://example.com/edge-arjun-blog3-28sept2026 - 40 pts - `Arjun_A_Blog_2026-09-28_03.json`
@@ -17,6 +17,8 @@ _Total: 19 accepted submissions across 1/78 fellows_
 - [Linkedin] Edge test - Linkedin - Axon Lite post (2026-09-28) - https://example.com/edge-arjun-linkedin-28sept2026 - 40 pts - `Arjun_A_Linkedin_2026-09-28.json`
 - [Project] Edge test - Project 1 - Axon demo repo (2026-09-28) - https://example.com/edge-arjun-project1-28sept2026 - 70 pts - `Arjun_A_Project_2026-09-28.json`
 - [Project] Edge test - github alias maps to Project (2026-09-28) - https://example.com/edge-arjun-github-alias-28sept2026 - 70 pts - `Arjun_A_Project_2026-09-28_02.json`
+- [PurchaseProof] Purchase proof - Shrike Lite kit invoice (TEST) (2026-09-28) - https://github.com/nilangwork17/vicharak-fellowship-tracker/blob/test-purchase-proof-images-28sept/proofs/Arjun_A_proof_2026-09-28.png - 0 pts - `Arjun_A_PurchaseProof_2026-09-28.json`
+- [PurchaseProof] Purchase proof - board photo, alias type kit (TEST) (2026-09-28) - https://github.com/nilangwork17/vicharak-fellowship-tracker/blob/test-purchase-proof-images-28sept/proofs/Arjun_A_proof_2026-09-28_board.jpg - 0 pts - `Arjun_A_PurchaseProof_2026-09-28_02.json`
 - [Referral] Edge test - Referral - Campus referral (2026-09-28) - https://example.com/edge-arjun-referral-28sept2026 - 30 pts - `Arjun_A_Referral_2026-09-28.json`
 - [Video] Edge test - Video - Axon unboxing (2026-09-28) - https://example.com/edge-arjun-video-28sept2026 - 90 pts - `Arjun_A_Video_2026-09-28.json`
 - [Workshop] Edge test - Workshop - Axon hands-on (2026-09-28) - https://example.com/edge-arjun-workshop-28sept2026 - 100 pts - `Arjun_A_Workshop_2026-09-28.json`
