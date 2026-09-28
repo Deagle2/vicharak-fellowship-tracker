@@ -40,5 +40,5 @@
     "demo": "Demo",
     "product demo": "Demo"
   },
-  "_threshold": 600
+  "_threshold": 250
 }

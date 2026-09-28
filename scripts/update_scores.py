@@ -25,7 +25,7 @@ CANONICAL_FOR_ROW = {"Github": "Project", "Linkedin": "Linkedin", "Blog": "Blog"
 def load_points():
     data = json.loads(POINTS_JSON.read_text(encoding="utf-8"))
     aliases = {k.lower(): v for k, v in data.get("_aliases", {}).items()}
-    threshold = data.get("_threshold", 600)
+    threshold = data.get("_threshold", 250)
     points = {k: v for k, v in data.items() if not k.startswith("_")}
     return points, aliases, threshold
 

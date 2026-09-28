@@ -1,10 +1,10 @@
-# Fellowship Scores - 2026-09-28 06:53 UTC
+# Fellowship Scores - 2026-09-28 12:31 UTC
 
-Threshold: 600 (ELIGIBLE >= 600)
+Threshold: 250 (ELIGIBLE >= 250)
 
 | Rank | Fellow | GitHub | LinkedIn | Blog | X | Workshop | Other | Total | Status |
 |---:|---|---|---|---|---|---|---|---|---|
-| 1 | Arjun A | 1 | 1 | 1 | 1 | 1 | 7 | **595** | BELOW |
+| 1 | Arjun A | 1 | 1 | 1 | 1 | 1 | 7 | **595** | ELIGIBLE |
 | 2 | Abhishek Jain | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 3 | Adeep AG | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 4 | Aditya Nukala | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
