@@ -10,6 +10,11 @@
 4. One submission = one JSON file = one PR (easier to accept/reject). Do not bundle multiple links in one file.
 5. If maintainer merges, points auto-allocate. If closed, no points.
 
+## Single-name listing (auto-generated)
+- [`INDEX.md`](INDEX.md) — all accepted submissions grouped under a single fellow name (`## Name - N submission(s), P pts` + bullet per link). Start here to browse.
+- [`INDEX.json`](INDEX.json) — same data, machine-readable (`{ "Fellow Name": [{type, points, title, link, date, file}] }`).
+- Both regenerate on every merge. Do not hand-edit (overwritten). Ignored as input by the scorer.
+
 Example file: `Arjun_A_Blog_2026-09-28.json`
 ```json
 {

@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "fellowship-bot"
           git config user.email "bot@vicharak.in"
-          git add allocations/ fellowship_scores.pdf SCORES.md README.md
+          git add allocations/ fellowship_scores.pdf SCORES.md README.md submissions/INDEX.json submissions/INDEX.md
           git status --short
           if ! git diff --cached --quiet; then
             git commit -m "chore: update allocations + scores [skip ci]"

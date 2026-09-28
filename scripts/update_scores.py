@@ -77,7 +77,7 @@ def main():
     store = {k: {} for k in fellows}
     errors = []
     files = sorted(SUB_DIR.glob("*.json"))
-    files = [p for p in files if p.name != "TEMPLATE.json"]
+    files = [p for p in files if p.name not in ("TEMPLATE.json", "INDEX.json")]
     for p in files:
         try:
             obj = json.loads(p.read_text(encoding="utf-8"))
@@ -206,6 +206,38 @@ def main():
         print(f"SCORES.md written: {len(ranked)} fellows")
     except Exception as e:
         print(f"Leaderboard update failed: {e}", file=sys.stderr)
+
+    # submissions/INDEX.json + INDEX.md — all submissions grouped under a single fellow name
+    try:
+        index = {}
+        for fkey in sorted(store, key=lambda k: fellows[k].lower()):
+            d = store[fkey]
+            items = []
+            for ctype in sorted(d):
+                for it in sorted(d[ctype], key=lambda x: (x["date"], x["file"])):
+                    items.append({"type": ctype,
+                                  "points": points.get(ctype, 0),
+                                  "title": it["title"],
+                                  "link": it["link"],
+                                  "date": it["date"],
+                                  "file": it["file"]})
+            if items:
+                index[fellows[fkey]] = items
+        (SUB_DIR / "INDEX.json").write_text(json.dumps(index, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        md = [f"# Submissions by Fellow - {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC", "",
+              f"_Total: {sum(len(v) for v in index.values())} accepted submissions across {len(index)}/{len(fellows)} fellows_"]
+        if not index:
+            md += ["", "_No accepted submissions yet. Submit via PR (see README in this folder)._"]
+        for name in sorted(index, key=str.lower):
+            items = index[name]
+            total_pts = sum(i["points"] for i in items)
+            md += ["", f"## {name} - {len(items)} submission(s), {total_pts} pts"]
+            for it in items:
+                md.append(f"- [{it['type']}] {it['title']} ({it['date']}) - {it['link']} - {it['points']} pts - `{it['file']}`")
+        (SUB_DIR / "INDEX.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+        print(f"submissions/INDEX.json + INDEX.md written: {len(index)} fellows with submissions")
+    except Exception as e:
+        print(f"INDEX generation failed: {e}", file=sys.stderr)
 
     # PDF (optional reportlab, else simple text-based fallback skipped)
     try:
