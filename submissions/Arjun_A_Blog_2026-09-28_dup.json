@@ -1,7 +1,0 @@
-{
-  "fellow": "Arjun A",
-  "type": "Blog",
-  "title": "Edge test - Blog DUP - same link as Blog 1, should not double count",
-  "link": "https://example.com/edge-arjun-blog1-28sept2026",
-  "date": "2026-09-28"
-}
