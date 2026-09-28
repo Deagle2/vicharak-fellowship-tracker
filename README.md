@@ -1,4 +1,4 @@
-# Vicharak Campus Fellowship — Submission Tracker (private)
+# Vicharak Campus Fellowship — Submission Tracker
 
 Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub Action auto-allocates links + points.
 
@@ -48,6 +48,38 @@ python scripts/update_scores.py
 ```
 
 ## Admin
-- Repo is private: https://github.com/nilangwork17/vicharak-fellowship-tracker
+- Repo: https://github.com/nilangwork17/vicharak-fellowship-tracker
 - Invite students as collaborators with `Triage`/`Write` (PR only, protect `main` → require PR, no direct push).
 - To re-fetch fellows: re-run `extract_fellows.py` on updated `Fellowship program.xlsx` → overwrite `fellows.csv`.
+
+## Admin — Live Score List (auto-updated on every merge, do not edit below)
+<!-- SCORES_START -->
+_Updated 2026-09-28 12:12 UTC - Threshold 250 - 1/78 with points_
+
+| Rank | Fellow | Total | Status |
+|---:|---|---:|---|
+| 1 | Arjun A | **595** | ELIGIBLE |
+| 2 | Abhishek Jain | **0** | BELOW |
+| 3 | Adeep AG | **0** | BELOW |
+| 4 | Aditya Nukala | **0** | BELOW |
+| 5 | Aditya Reddy | **0** | BELOW |
+| 6 | Amaan Pathan | **0** | BELOW |
+| 7 | Amrutha M | **0** | BELOW |
+| 8 | Anandu Rajan | **0** | BELOW |
+| 9 | Ankit Choudhury | **0** | BELOW |
+| 10 | Ankit raj | **0** | BELOW |
+| 11 | ANNESTIO PIETY CASTANHA | **0** | BELOW |
+| 12 | Anusheel Singh | **0** | BELOW |
+| 13 | Appu Raj | **0** | BELOW |
+| 14 | Arafat Babar | **0** | BELOW |
+| 15 | Arijit Ghosh | **0** | BELOW |
+| 16 | Arjav Sanjaybhai Khunt | **0** | BELOW |
+| 17 | Arjun Rajesh | **0** | BELOW |
+| 18 | Arush Dwivedi | **0** | BELOW |
+| 19 | Ashish Kumar Pal | **0** | BELOW |
+| 20 | Ashutosh Mishra | **0** | BELOW |
+
+_Showing top 20 of 78 - full list in [SCORES.md](SCORES.md)_
+<!-- SCORES_END -->
+
+Full table: [`SCORES.md`](SCORES.md) · Machine-readable: [`allocations/summary.csv`](allocations/summary.csv) · PDF: [`fellowship_scores.pdf`](fellowship_scores.pdf)

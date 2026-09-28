@@ -15,6 +15,8 @@ SUB_DIR = ROOT / "submissions"
 ALLOC_DIR = ROOT / "allocations"
 SUMMARY_CSV = ALLOC_DIR / "summary.csv"
 PDF_OUT = ROOT / "fellowship_scores.pdf"
+SCORES_MD = ROOT / "SCORES.md"
+README_MD = ROOT / "README.md"
 
 # Screenshot rows: keep exactly these 5 + Total. Project alias displays as Github.
 SCREENSHOT_ROWS = ["Github", "Linkedin", "Blog", "X", "Workshop"]
@@ -173,6 +175,36 @@ def main():
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(summary_rows)
+
+    # SCORES.md + README leaderboard block (below Admin) — sorted by Total desc
+    ranked = sorted(summary_rows, key=lambda r: (-r["Total_Points"], r["Fellow"].lower()))
+    lines = [f"# Fellowship Scores - {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC",
+             "", f"Threshold: {threshold} (ELIGIBLE >= {threshold})",
+             "", "| Rank | Fellow | GitHub | LinkedIn | Blog | X | Workshop | Other | Total | Status |",
+             "|---:|---|---|---|---|---|---|---|---|---|"]
+    for i, r in enumerate(ranked, 1):
+        # only show non-zero OR top 30 to keep README readable? show all with points, collapse zeros
+        lines.append(f"| {i} | {r['Fellow']} | {r['Github(Project)_count']} | {r['Linkedin_count']} | {r['Blog_count']} | {r['X_count']} | {r['Workshop_count']} | {r['Other_count']} | **{r['Total_Points']}** | {r['Threshold_250']} |")
+    lines += ["", f"_Source: allocations/summary.csv - {len(ranked)} fellows - Points: " + ", ".join(f"{k}={v}" for k, v in points.items())]
+    SCORES_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # Patch README block between SCORES_START/END (show top 20 + link to full)
+    try:
+        top = ranked[:20]
+        table = ["| Rank | Fellow | Total | Status |", "|---:|---|---:|---|"]
+        for i, r in enumerate(top, 1):
+            table.append(f"| {i} | {r['Fellow']} | **{r['Total_Points']}** | {r['Threshold_250']} |")
+        block = (f"_Updated {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC - Threshold {threshold} - {len([r for r in ranked if r['Total_Points']>0])}/{len(ranked)} with points_\n\n"
+                 + "\n".join(table) + f"\n\n_Showing top 20 of {len(ranked)} - full list in [SCORES.md](SCORES.md)_")
+        txt = README_MD.read_text(encoding="utf-8")
+        pat = re.compile(r"<!-- SCORES_START -->.*?<!-- SCORES_END -->", re.DOTALL)
+        repl = f"<!-- SCORES_START -->\n{block}\n<!-- SCORES_END -->"
+        if "<!-- SCORES_START -->" in txt:
+            txt = pat.sub(repl, txt)
+            README_MD.write_text(txt, encoding="utf-8")
+            print(f"README leaderboard updated: {README_MD}")
+        print(f"SCORES.md written: {len(ranked)} fellows")
+    except Exception as e:
+        print(f"Leaderboard update failed: {e}", file=sys.stderr)
 
     # PDF (optional reportlab, else simple text-based fallback skipped)
     try:
