@@ -5,6 +5,9 @@ Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub A
 Source of truth for fellows: `fellows.csv` (fetched from `Fellowship program.xlsx` on PC — 78 unique fellows, de-duplicated).
 Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. Threshold = 250.
 
+## Join (purchase proof required)
+Public to view, gated to edit. To get edit access: Issues → `Request repo access` → attach `<Your-Name>_proof.png` (board / invoice). Bot checks name in `fellows.csv` + proof attached. Admin adds `approved` → bot invites you. Full steps: [`docs/JOIN.md`](docs/JOIN.md).
+
 ## Flow
 1. Student: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_<Type>_<YYYY-MM-DD>.json`
    Example: `submissions/Arjun_A_Blog_2026-09-28.json`

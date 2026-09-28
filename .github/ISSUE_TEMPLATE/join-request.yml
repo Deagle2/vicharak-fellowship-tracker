@@ -1,0 +1,68 @@
+name: Request repo access (purchase proof)
+description: New fellows - attach board / invoice proof to get edit access
+title: "[JOIN] Full Name - College"
+labels: ["join-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## How joining works
+        1. Fill this form. Attach proof image renamed as `<Your-Full-Name>_proof.png/jpg/pdf` (board photo / invoice screenshot).
+        2. Bot checks: name exists in `fellows.csv` + proof attached.
+        3. Admin reviews. If accepted, admin adds `approved` label -> bot invites your GitHub account with `push` (edit) access.
+        4. You accept the invite (email / notifications). Done.
+
+        Do NOT open a PR for joining. One issue per person.
+  - type: input
+    id: full_name
+    attributes:
+      label: Full name (exact as in Fellowship form / fellows.csv)
+      placeholder: e.g. Arjun A
+    validations:
+      required: true
+  - type: input
+    id: github_username
+    attributes:
+      label: Your GitHub username (must match the account opening this issue)
+      placeholder: e.g. arjnchrn
+    validations:
+      required: true
+  - type: input
+    id: email
+    attributes:
+      label: Email ID (same as Fellowship registration)
+      placeholder: you@example.com
+    validations:
+      required: true
+  - type: input
+    id: college
+    attributes:
+      label: College / Institute
+    validations:
+      required: false
+  - type: input
+    id: board
+    attributes:
+      label: Board purchased (ShrikeFi / Shrike Lite + Order ID if available)
+      placeholder: Shrike Lite, Order #1234
+    validations:
+      required: false
+  - type: textarea
+    id: proof
+    attributes:
+      label: Purchase proof (REQUIRED)
+      description: Drag-drop here. Rename file first as <Full-Name>_proof.png/jpg/pdf. Board photo, invoice screenshot, or unboxing photo all OK. Multiple files allowed.
+      placeholder: Drag your <Full-Name>_proof.png here...
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirm
+      options:
+        - label: I bought a Vicharak kit and this proof is mine
+          required: true
+        - label: My name above matches fellows.csv (Fellowship program list)
+          required: true
+        - label: I will follow 10-15-2 rhythm and PR-only submission rules
+          required: false
