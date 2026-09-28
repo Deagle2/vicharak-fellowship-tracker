@@ -15,33 +15,24 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Validate join request
-        id: check
+      - name: Validate join request + comment
         env:
-          BODY: ${{ github.event.issue.body }}
-          AUTHOR: ${{ github.event.issue.user.login }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
-          printf '%s' "$BODY" > /tmp/body.md
-          python scripts/validate_join.py --body /tmp/body.md --fellows fellows.csv --author "$AUTHOR" > /tmp/out.json
+          printf '%s' "$ISSUE_BODY" > /tmp/body.md
+          python scripts/validate_join.py --body /tmp/body.md --fellows fellows.csv --author "$ISSUE_AUTHOR" > /tmp/out.json
           cat /tmp/out.json
-          echo "comment<<EOF" >> $GITHUB_OUTPUT
-          python -c "import json; print(json.load(open('/tmp/out.json'))['comment'])" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          echo "ok=$(python -c "import json; print(str(json.load(open('/tmp/out.json'))['ok']).lower())")" >> $GITHUB_OUTPUT
-      - name: Label + comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const ok = '${{ steps.check.outputs.ok }}' === 'true';
-            const body = `${{ steps.check.outputs.comment }}`;
-            await github.rest.issues.createComment({
-              owner: context.repo.owner, repo: context.repo.repo,
-              issue_number: context.issue.number, body
-            });
-            const want = ok ? 'join-valid' : 'join-invalid';
-            const drop = ok ? 'join-invalid' : 'join-valid';
-            try { await github.rest.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, name: drop}); } catch(e) {}
-            try { await github.rest.issues.addLabels({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, labels: [want]}); } catch(e) {}
+          python -c "import json; open('/tmp/comment.md','w').write(json.load(open('/tmp/out.json'))['comment'])"
+          OK=$(python -c "import json; print(str(json.load(open('/tmp/out.json'))['ok']).lower())")
+          gh issue comment "$ISSUE_NUMBER" --body-file /tmp/comment.md
+          if [ "$OK" = "true" ]; then
+            gh issue edit "$ISSUE_NUMBER" --add-label "join-valid" --remove-label "join-invalid" || gh issue edit "$ISSUE_NUMBER" --add-label "join-valid"
+          else
+            gh issue edit "$ISSUE_NUMBER" --add-label "join-invalid" --remove-label "join-valid" || gh issue edit "$ISSUE_NUMBER" --add-label "join-invalid"
+          fi
 
   invite:
     # Admin accepts by adding `approved` label (name must already be valid)
@@ -52,33 +43,39 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Re-validate + invite
-        uses: actions/github-script@v7
-        with:
-          # Invite needs a PAT with `repo` scope (GITHUB_TOKEN cannot invite). Set repo secret ONBOARD_PAT.
-          script: |
-            const fs = require('fs');
-            const {execSync} = require('child_process');
-            execSync(`printf '%s' ${JSON.stringify(context.payload.issue.body || '')} > /tmp/body.md`);
-            execSync(`python scripts/validate_join.py --body /tmp/body.md --fellows fellows.csv --author "${context.payload.issue.user.login}" > /tmp/out.json`);
-            const out = JSON.parse(fs.readFileSync('/tmp/out.json','utf8'));
-            const author = context.payload.issue.user.login;
-            if (!out.ok) {
-              await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                body: `Cannot invite @${author} yet - join check FAILED.\n- Name in list: ${out.checks.name_in_list}\n- Proof attached: ${out.checks.proof_attached}\nFix the issue first, then re-add \`approved\`.`});
-              try { await github.rest.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, name: 'approved'}); } catch(e) {}
-              return;
-            }
-            const pat = process.env.ONBOARD_PAT;
-            if (!pat) {
-              await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-                body: `VALIDATED @${author} (${out.full_name}) - ready to invite.\n\nNo ONBOARD_PAT secret set, so admin: run this once:\n\`\`\`\ngh api -X PUT repos/${context.repo.owner}/${context.repo.repo}/collaborators/${author} -f permission=push\n\`\`\`\nThen close this issue as completed.`});
-              return;
-            }
-            const {Octokit} = await import('@octokit/rest');
-            const oct = new Octokit({auth: pat});
-            await oct.rest.repos.addCollaborator({owner: context.repo.owner, repo: context.repo.repo, username: author, permission: 'push'});
-            await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
-              body: `Invited @${author} (${out.full_name}) with edit (push) access. Accept via email/notifications. Welcome!`});
+      - name: Re-validate + invite issue author
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ONBOARD_PAT: ${{ secrets.ONBOARD_PAT }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          printf '%s' "$ISSUE_BODY" > /tmp/body.md
+          python scripts/validate_join.py --body /tmp/body.md --fellows fellows.csv --author "$ISSUE_AUTHOR" > /tmp/out.json
+          cat /tmp/out.json
+          OK=$(python -c "import json; print(str(json.load(open('/tmp/out.json'))['ok']).lower())")
+          NAME=$(python -c "import json; print(json.load(open('/tmp/out.json'))['full_name'])")
+          if [ "$OK" != "true" ]; then
+            printf 'Cannot invite @%s yet - join check FAILED. Fix name/proof first, then re-add `approved`.' "$ISSUE_AUTHOR" > /tmp/msg.md
+            gh issue comment "$ISSUE_NUMBER" --body-file /tmp/msg.md
+            gh issue edit "$ISSUE_NUMBER" --remove-label "approved" || true
+            exit 0
+          fi
+          if [ -z "$ONBOARD_PAT" ]; then
+            {
+              echo "VALIDATED @$ISSUE_AUTHOR ($NAME) - ready to invite."
+              echo ""
+              echo "No ONBOARD_PAT secret set, so admin: run this once:"
+              echo '```'
+              echo "gh api -X PUT repos/$REPO/collaborators/$ISSUE_AUTHOR -f permission=push"
+              echo '```'
+              echo "Then close this issue as completed."
+            } > /tmp/msg.md
+            gh issue comment "$ISSUE_NUMBER" --body-file /tmp/msg.md
+            exit 0
+          fi
+          GH_TOKEN="$ONBOARD_PAT" gh api -X PUT "repos/$REPO/collaborators/$ISSUE_AUTHOR" -f permission=push
+          printf 'Invited @%s (%s) with edit (push) access. Accept via email/notifications. Welcome!' "$ISSUE_AUTHOR" "$NAME" > /tmp/msg.md
+          gh issue comment "$ISSUE_NUMBER" --body-file /tmp/msg.md
