@@ -1,4 +1,4 @@
-# Fellowship Scores - 2026-09-28 12:31 UTC
+# Fellowship Scores - 2026-09-28 07:01 UTC
 
 Threshold: 250 (ELIGIBLE >= 250)
 
