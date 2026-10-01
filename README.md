@@ -2,7 +2,7 @@
 
 Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub Action auto-allocates links + points.
 
-Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the Fellowship sheet — 58 fellows: 61 rows minus 3 double registrations plus name fix for Aaditya Goswami).
+Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the Fellowship sheet — 59 fellows: 61 rows minus 2 removed dupes, Lakshya split into normal + Team Jatayu rows, plus name fix for Aaditya Goswami).
 Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 (first-PR kit gate, flips Kit to YES). Threshold = 250.
 
 ## Join (purchase proof required)
@@ -57,7 +57,7 @@ python scripts/update_scores.py
 
 ## Admin — Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-10-01 10:43 UTC - Threshold 250 - 0/58 with points_
+_Updated 2026-10-01 16:24 UTC - Threshold 250 - 0/59 with points_
 
 | Rank | Fellow | GitHub | Kit | Total | Status |
 |---:|---|---|---|---:|---|
@@ -82,7 +82,7 @@ _Updated 2026-10-01 10:43 UTC - Threshold 250 - 0/58 with points_
 | 19 | Harshit Kumar Sharma | @harshit2387 | NO | **0** | BELOW |
 | 20 | hruday duppalapudi | @hruday-inventory-03 | NO | **0** | BELOW |
 
-_Showing top 20 of 58 - full list in [SCORES.md](SCORES.md)_
+_Showing top 20 of 59 - full list in [SCORES.md](SCORES.md)_
 <!-- SCORES_END -->
 
 Full table: [`SCORES.md`](SCORES.md) · Machine-readable: [`allocations/summary.csv`](allocations/summary.csv) · PDF: [`fellowship_scores.pdf`](fellowship_scores.pdf)
