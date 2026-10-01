@@ -2,7 +2,7 @@
 
 Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub Action auto-allocates links + points.
 
-Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the Fellowship sheet — 57 fellows).
+Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the Fellowship sheet — 58 fellows: 61 rows minus 3 double registrations plus name fix for Aaditya Goswami).
 Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 (first-PR kit gate, flips Kit to YES). Threshold = 250.
 
 ## Join (purchase proof required)
@@ -57,32 +57,32 @@ python scripts/update_scores.py
 
 ## Admin — Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-10-01 10:37 UTC - Threshold 250 - 0/57 with points_
+_Updated 2026-10-01 16:12 UTC - Threshold 250 - 0/58 with points_
 
 | Rank | Fellow | GitHub | Kit | Total | Status |
 |---:|---|---|---|---:|---|
-| 1 | Abhishek Jain | @abhishek261007 | NO | **0** | BELOW |
-| 2 | Adeep AG | @adeep13 | NO | **0** | BELOW |
-| 3 | Aditya Nukala | @adikp98 | NO | **0** | BELOW |
-| 4 | Aditya Reddy | @aditya-1020 | NO | **0** | BELOW |
-| 5 | Amaan Pathan | @amaan9737 | NO | **0** | BELOW |
-| 6 | Amrutha M | @amrutham-24 | NO | **0** | BELOW |
-| 7 | Ankit raj | @ankitra-j | NO | **0** | BELOW |
-| 8 | ANNESTIO PIETY CASTANHA | @apcetc | NO | **0** | BELOW |
-| 9 | Anusheel Singh | @anusheelsingh12 | NO | **0** | BELOW |
-| 10 | Arafat Babar | @arafatbabar | NO | **0** | BELOW |
-| 11 | Arijit Ghosh | @ari-jit | NO | **0** | BELOW |
-| 12 | Arjun A | @arjnchrn | NO | **0** | BELOW |
-| 13 | Arush Dwivedi | @arushdwivedi11 | NO | **0** | BELOW |
-| 14 | Ashish Kumar Pal | @jipal5212-wq | NO | **0** | BELOW |
-| 15 | CHERALA ROHAN | @therohancherala | NO | **0** | BELOW |
-| 16 | Gantla Venkata Sravan | @sravangantla007 | NO | **0** | BELOW |
-| 17 | Hardik Kumar Sinha | @hksinha510 | NO | **0** | BELOW |
-| 18 | Harshit Kumar Sharma | @harshit2387 | NO | **0** | BELOW |
-| 19 | hruday duppalapudi | @hruday-inventory-03 | NO | **0** | BELOW |
-| 20 | JANAPAATI ROHITH | @janapaatirohith | NO | **0** | BELOW |
+| 1 | Aaditya Goswami | @aadii02 | NO | **0** | BELOW |
+| 2 | Abhishek Jain | @abhishek261007 | NO | **0** | BELOW |
+| 3 | Adeep AG | @adeep13 | NO | **0** | BELOW |
+| 4 | Aditya Nukala | @adikp98 | NO | **0** | BELOW |
+| 5 | Aditya Reddy | @aditya-1020 | NO | **0** | BELOW |
+| 6 | Amaan Pathan | @amaan9737 | NO | **0** | BELOW |
+| 7 | Amrutha M | @amrutham-24 | NO | **0** | BELOW |
+| 8 | Ankit raj | @ankitra-j | NO | **0** | BELOW |
+| 9 | ANNESTIO PIETY CASTANHA | @apcetc | NO | **0** | BELOW |
+| 10 | Anusheel Singh | @anusheelsingh12 | NO | **0** | BELOW |
+| 11 | Arafat Babar | @arafatbabar | NO | **0** | BELOW |
+| 12 | Arijit Ghosh | @ari-jit | NO | **0** | BELOW |
+| 13 | Arjun A | @arjnchrn | NO | **0** | BELOW |
+| 14 | Arush Dwivedi | @arushdwivedi11 | NO | **0** | BELOW |
+| 15 | Ashish Kumar Pal | @jipal5212-wq | NO | **0** | BELOW |
+| 16 | CHERALA ROHAN | @therohancherala | NO | **0** | BELOW |
+| 17 | Gantla Venkata Sravan | @sravangantla007 | NO | **0** | BELOW |
+| 18 | Hardik Kumar Sinha | @hksinha510 | NO | **0** | BELOW |
+| 19 | Harshit Kumar Sharma | @harshit2387 | NO | **0** | BELOW |
+| 20 | hruday duppalapudi | @hruday-inventory-03 | NO | **0** | BELOW |
 
-_Showing top 20 of 57 - full list in [SCORES.md](SCORES.md)_
+_Showing top 20 of 58 - full list in [SCORES.md](SCORES.md)_
 <!-- SCORES_END -->
 
 Full table: [`SCORES.md`](SCORES.md) · Machine-readable: [`allocations/summary.csv`](allocations/summary.csv) · PDF: [`fellowship_scores.pdf`](fellowship_scores.pdf)
