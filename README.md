@@ -57,30 +57,30 @@ python scripts/update_scores.py
 
 ## Admin — Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-09-28 09:52 UTC - Threshold 250 - 0/78 with points_
+_Updated 2026-10-01 15:58 UTC - Threshold 250 - 0/78 with points_
 
-| Rank | Fellow | Kit | Total | Status |
-|---:|---|---|---:|---|
-| 1 | Abhishek Jain | NO | **0** | BELOW |
-| 2 | Adeep AG | NO | **0** | BELOW |
-| 3 | Aditya Nukala | NO | **0** | BELOW |
-| 4 | Aditya Reddy | NO | **0** | BELOW |
-| 5 | Amaan Pathan | NO | **0** | BELOW |
-| 6 | Amrutha M | NO | **0** | BELOW |
-| 7 | Anandu Rajan | NO | **0** | BELOW |
-| 8 | Ankit Choudhury | NO | **0** | BELOW |
-| 9 | Ankit raj | NO | **0** | BELOW |
-| 10 | ANNESTIO PIETY CASTANHA | NO | **0** | BELOW |
-| 11 | Anusheel Singh | NO | **0** | BELOW |
-| 12 | Appu Raj | NO | **0** | BELOW |
-| 13 | Arafat Babar | NO | **0** | BELOW |
-| 14 | Arijit Ghosh | NO | **0** | BELOW |
-| 15 | Arjav Sanjaybhai Khunt | NO | **0** | BELOW |
-| 16 | Arjun A | NO | **0** | BELOW |
-| 17 | Arjun Rajesh | NO | **0** | BELOW |
-| 18 | Arush Dwivedi | NO | **0** | BELOW |
-| 19 | Ashish Kumar Pal | NO | **0** | BELOW |
-| 20 | Ashutosh Mishra | NO | **0** | BELOW |
+| Rank | Fellow | GitHub | Kit | Total | Status |
+|---:|---|---|---|---|---:|---|
+| 1 | Abhishek Jain | - | NO | **0** | BELOW |
+| 2 | Adeep AG | @adeep13 | NO | **0** | BELOW |
+| 3 | Aditya Nukala | @adikp98 | NO | **0** | BELOW |
+| 4 | Aditya Reddy | @aditya-1020 | NO | **0** | BELOW |
+| 5 | Amaan Pathan | - | NO | **0** | BELOW |
+| 6 | Amrutha M | @amrutham-24 | NO | **0** | BELOW |
+| 7 | Anandu Rajan | - | NO | **0** | BELOW |
+| 8 | Ankit Choudhury | - | NO | **0** | BELOW |
+| 9 | Ankit raj | @ankitra-j | NO | **0** | BELOW |
+| 10 | ANNESTIO PIETY CASTANHA | @apcetc | NO | **0** | BELOW |
+| 11 | Anusheel Singh | @anusheelsingh12 | NO | **0** | BELOW |
+| 12 | Appu Raj | - | NO | **0** | BELOW |
+| 13 | Arafat Babar | @arafatbabar | NO | **0** | BELOW |
+| 14 | Arijit Ghosh | @ari-jit | NO | **0** | BELOW |
+| 15 | Arjav Sanjaybhai Khunt | - | NO | **0** | BELOW |
+| 16 | Arjun A | @arjnchrn | NO | **0** | BELOW |
+| 17 | Arjun Rajesh | - | NO | **0** | BELOW |
+| 18 | Arush Dwivedi | @arushdwivedi11 | NO | **0** | BELOW |
+| 19 | Ashish Kumar Pal | @jipal5212-wq | NO | **0** | BELOW |
+| 20 | Ashutosh Mishra | - | NO | **0** | BELOW |
 
 _Showing top 20 of 78 - full list in [SCORES.md](SCORES.md)_
 <!-- SCORES_END -->

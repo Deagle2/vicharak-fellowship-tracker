@@ -1,0 +1,70 @@
+name: attribute-pr-author
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'submissions/**'
+
+permissions:
+  pull-requests: write
+
+jobs:
+  attribute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Attribute PR author to fellow + comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          python - <<'EOF' > /tmp/msg.md
+          import csv, json, re
+          def users(raw):
+              out = []
+              for part in re.split(r"[,;\s]+", raw or ""):
+                  part = part.strip().strip("<>").rstrip("/")
+                  if not part:
+                      continue
+                  m = re.search(r"github\.com/([A-Za-z0-9-]+)", part, re.IGNORECASE)
+                  u = m.group(1).lower() if m else part.lstrip("@").lower()
+                  if u not in out:
+                      out.append(u)
+              return out
+          fellows, gmap = {}, {}
+          with open("fellows.csv", encoding="utf-8") as f:
+              for row in csv.DictReader(f):
+                  n = (row.get("Full name") or "").strip()
+                  if not n:
+                      continue
+                  key = re.sub(r"\s+", " ", n).lower()
+                  fellows.setdefault(key, re.sub(r"\s+", " ", n).strip())
+                  for u in users(row.get("Github") or ""):
+                      gmap.setdefault(u, key)
+          import os
+          try:
+              ov = json.load(open("github_overrides.json", encoding="utf-8"))
+              for user, name in (ov or {}).items():
+                  if str(user).startswith("_") or str(user) == "example_user_do_not_use":
+                      continue
+                  key = re.sub(r"\s+", " ", str(name)).lower()
+                  if key in fellows:
+                      gmap[str(user).strip().lstrip("@").lower()] = key
+          except FileNotFoundError:
+              pass
+          author = os.environ.get("PR_AUTHOR", "").lower()
+          key = gmap.get(author)
+          if key:
+              print(f"PR opened by @{author} - attributed to **{fellows[key]}**. Points from merged files go to that name. Admin: verify each JSON's `fellow` matches (CI fails on mismatch).")
+          else:
+              print(f"PR opened by @{author} - **no fellow mapping found** (not in fellows.csv sheet URLs or github_overrides.json).")
+              print("Student: add your GitHub URL to the Fellowship sheet or ask admin to map it in `github_overrides.json`. Ensure JSON `fellow` is your exact sheet name.")
+          EOF
+          cat /tmp/msg.md
+          gh pr comment "$PR_NUMBER" --body-file /tmp/msg.md

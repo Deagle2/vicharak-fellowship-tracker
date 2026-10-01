@@ -4,7 +4,8 @@
    - Name must match `fellows.csv` (case-insensitive), e.g. `Arjun_A`.
    - Type must be one of: PurchaseProof, Blog, Linkedin, X, Project, Workshop, Documentation, Video, Community, Bug, Feature, Referral, Demo.
    - **First PR must be PurchaseProof**: your dev-kit proof (board photo / invoice image link). Title it `[PurchaseProof] Your Name`. Until accepted, Kit shows NO in the score block.
-2. Fill all 5 fields. Link must start with http:// or https://.
+2. Fill all fields. Link must start with http:// or https://.
+   - `github`: your GitHub username/URL (the account opening the PR). It must map to your `fellow` name via `fellows.csv` or `github_overrides.json` — points always go to the `fellow` name, never to the raw account. A mismatch fails CI.
 3. Open a Pull Request. PR title format (important):
    `[PurchaseProof]` (first PR only) `[Blog]` `[Linkedin]` `[X]` `[Project]` `[Workshop]` `[Documentation]` `[Video]` `[Community]` `[Bug]` `[Feature]` `[Referral]` `[Demo]`
 4. One submission = one JSON file = one PR (easier to accept/reject). Do not bundle multiple links in one file.

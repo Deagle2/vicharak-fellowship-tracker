@@ -1,0 +1,4 @@
+{
+  "_comment": "Manual GitHub username -> Fellow name fixes (wins over fellows.csv sheet). Use when a fellow's PR account differs from the sheet URL. Keys are lowercase usernames WITHOUT @. Points always go to the Fellow name. Example: {\"someuser\": \"Arjun A\"}",
+  "example_user_do_not_use": "Full Name exactly as in fellows.csv"
+}

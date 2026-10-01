@@ -17,6 +17,8 @@ SUMMARY_CSV = ALLOC_DIR / "summary.csv"
 PDF_OUT = ROOT / "fellowship_scores.pdf"
 SCORES_MD = ROOT / "SCORES.md"
 README_MD = ROOT / "README.md"
+GITHUB_MAP_JSON = ROOT / "github_map.json"
+GITHUB_OVERRIDES_JSON = ROOT / "github_overrides.json"
 
 # Screenshot rows: keep exactly these 5 + Total. Project alias displays as Github.
 SCREENSHOT_ROWS = ["Github", "Linkedin", "Blog", "X", "Workshop"]
@@ -70,10 +72,57 @@ def load_fellows():
                 meta[key] = row
     return fellows, meta
 
+def parse_github_usernames(raw):
+    """Extract github.com usernames from a URL field (handles comma/space separated, www., /repo suffix)."""
+    users = []
+    for part in re.split(r"[,;\s]+", raw or ""):
+        part = part.strip().strip("<>").rstrip("/")
+        if not part:
+            continue
+        if part.startswith("@"):
+            part = part[1:]
+        m = re.search(r"github\.com/([A-Za-z0-9-]+)", part, re.IGNORECASE)
+        if m:
+            users.append(m.group(1).lower())
+        elif re.fullmatch(r"[A-Za-z0-9-]{1,39}", part):
+            users.append(part.lower())
+    # de-dupe, preserve order
+    seen, out = set(), []
+    for u in users:
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out
+
+def load_github_map(meta, fellows):
+    """Map github username (lower) -> fellow key. Base = fellows.csv Github column, overrides win."""
+    gmap = {}
+    for fkey, row in meta.items():
+        for u in parse_github_usernames(row.get("Github") or ""):
+            gmap.setdefault(u, fkey)
+    try:
+        ov = json.loads(GITHUB_OVERRIDES_JSON.read_text(encoding="utf-8"))
+        for user, name in (ov or {}).items():
+            if str(user).startswith("_") or str(user) == "example_user_do_not_use":
+                continue
+            key = re.sub(r"\s+", " ", str(name)).lower()
+            if key not in fellows:
+                print(f"WARNING: github_overrides.json name '{name}' not in fellows.csv - skipped", file=sys.stderr)
+                continue
+            gmap[str(user).strip().lstrip("@").lower()] = key
+    except FileNotFoundError:
+        pass
+    except Exception as e:
+        print(f"WARNING: ignoring bad github_overrides.json ({e})", file=sys.stderr)
+    return gmap
+
 def main():
     points, aliases, threshold = load_points()
     thresh_col = f"Threshold_{threshold}"
     fellows, meta = load_fellows()
+    gmap = load_github_map(meta, fellows)  # github username -> fellow key (sheet + overrides)
+    observed = {k: set() for k in fellows}  # github usernames seen in accepted submissions
+    unmapped = {}  # github username -> set of files (not in sheet/overrides yet)
     # fellow_key -> {canon_type -> [(link,title,date,srcfile)]}
     store = {k: {} for k in fellows}
     errors = []
@@ -104,6 +153,18 @@ def main():
         if not (link.startswith("http://") or link.startswith("https://")):
             errors.append(f"{p.name}: link must start with http(s)://")
             continue
+        # attribution: optional `github` field (username or URL) must belong to the same fellow;
+        # points always go to `fellow` (the associated name), never to the raw GitHub account.
+        gh_users = parse_github_usernames(str(obj.get("github", "") or ""))
+        bad = next((u for u in gh_users if gmap.get(u) is not None and gmap[u] != fkey), None)
+        if bad is not None:
+            errors.append(f"{p.name}: github @{bad} belongs to '{fellows[gmap[bad]]}' but fellow is '{fellows[fkey]}' - points go to the `fellow` name")
+            continue
+        for u in gh_users:
+            if u in gmap:
+                observed[fkey].add(u)
+            else:
+                unmapped.setdefault(u, set()).add(p.name)
         store[fkey].setdefault(ctype, []).append({"link": link, "title": title, "date": date, "file": p.name})
 
     # de-dupe links per fellow+type (keep first)
@@ -124,6 +185,21 @@ def main():
         for row_label, ctype in CANONICAL_FOR_ROW.items():
             max_n = max(max_n, len(d.get(ctype, [])))
     headers = [""] + [f"Submission {i+1}" for i in range(max_n)] + ["Points"]
+
+    # display accounts per fellow: sheet usernames + ones seen in accepted submissions
+    base_users = {}
+    for fkey, row in meta.items():
+        base_users[fkey] = parse_github_usernames(row.get("Github") or "")
+    gh_display = {}
+    for fkey in fellows:
+        combo, seen = [], set()
+        for u in base_users.get(fkey, []) + sorted(observed.get(fkey, set())):
+            if u not in seen:
+                seen.add(u)
+                combo.append("@" + u)
+        gh_display[fkey] = " ".join(combo) if combo else "-"
+    # persist resolved map (username -> Fellow) for the PR-attribution workflow + admin review
+    GITHUB_MAP_JSON.write_text(json.dumps({u: fellows[k] for u, k in sorted(gmap.items())}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     summary_rows = []
     for fkey in sorted(store, key=lambda k: fellows[k].lower()):
@@ -166,6 +242,7 @@ def main():
             return len(d.get(t, []))
         summary_rows.append({
             "Fellow": display,
+            "Github": gh_display[fkey],
             "PurchaseProof": "YES" if d.get("PurchaseProof") else "NO",
             "Github(Project)_count": cnt("Project"),
             "Linkedin_count": cnt("Linkedin"),
@@ -178,7 +255,7 @@ def main():
         })
 
     with open(SUMMARY_CSV, "w", newline="", encoding="utf-8") as f:
-        fields = ["Fellow", "PurchaseProof", "Github(Project)_count", "Linkedin_count", "Blog_count", "X_count", "Workshop_count", "Other_count", "Total_Points", thresh_col]
+        fields = ["Fellow", "Github", "PurchaseProof", "Github(Project)_count", "Linkedin_count", "Blog_count", "X_count", "Workshop_count", "Other_count", "Total_Points", thresh_col]
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(summary_rows)
@@ -187,19 +264,19 @@ def main():
     ranked = sorted(summary_rows, key=lambda r: (-r["Total_Points"], r["Fellow"].lower()))
     lines = [f"# Fellowship Scores - {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC",
              "", f"Threshold: {threshold} (ELIGIBLE >= {threshold})",
-             "", "| Rank | Fellow | Kit | GitHub | LinkedIn | Blog | X | Workshop | Other | Total | Status |",
-             "|---:|---|---|---|---|---|---|---|---|---|---|"]
+             "", "| Rank | Fellow | GitHub | Kit | Project | LinkedIn | Blog | X | Workshop | Other | Total | Status |",
+             "|---:|---|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(ranked, 1):
         # only show non-zero OR top 30 to keep README readable? show all with points, collapse zeros
-        lines.append(f"| {i} | {r['Fellow']} | {r['PurchaseProof']} | {r['Github(Project)_count']} | {r['Linkedin_count']} | {r['Blog_count']} | {r['X_count']} | {r['Workshop_count']} | {r['Other_count']} | **{r['Total_Points']}** | {r[thresh_col]} |")
+        lines.append(f"| {i} | {r['Fellow']} | {r['Github']} | {r['PurchaseProof']} | {r['Github(Project)_count']} | {r['Linkedin_count']} | {r['Blog_count']} | {r['X_count']} | {r['Workshop_count']} | {r['Other_count']} | **{r['Total_Points']}** | {r[thresh_col]} |")
     lines += ["", f"_Source: allocations/summary.csv - {len(ranked)} fellows - Points: " + ", ".join(f"{k}={v}" for k, v in points.items())]
     SCORES_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     # Patch README block between SCORES_START/END (show top 20 + link to full)
     try:
         top = ranked[:20]
-        table = ["| Rank | Fellow | Kit | Total | Status |", "|---:|---|---|---:|---|"]
+        table = ["| Rank | Fellow | GitHub | Kit | Total | Status |", "|---:|---|---|---|---|---:|---|"]
         for i, r in enumerate(top, 1):
-            table.append(f"| {i} | {r['Fellow']} | {r['PurchaseProof']} | **{r['Total_Points']}** | {r[thresh_col]} |")
+            table.append(f"| {i} | {r['Fellow']} | {r['Github']} | {r['PurchaseProof']} | **{r['Total_Points']}** | {r[thresh_col]} |")
         block = (f"_Updated {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC - Threshold {threshold} - {len([r for r in ranked if r['Total_Points']>0])}/{len(ranked)} with points_\n\n"
                  + "\n".join(table) + f"\n\n_Showing top 20 of {len(ranked)} - full list in [SCORES.md](SCORES.md)_")
         txt = README_MD.read_text(encoding="utf-8")
@@ -257,9 +334,10 @@ def main():
                Paragraph(f"Generated {datetime.now().strftime('%Y-%m-%d %H:%M')} | Threshold {threshold} | Points: " +
                          ", ".join(f"{k}={v}" for k, v in points.items()), styles["Normal"]), Spacer(1, 12)]
         # summary table
-        data = [["Fellow", "Kit", "GitHub", "LinkedIn", "Blog", "X", "Workshop", "Other", "Total", "Status"]]
+        data = [["Fellow (GitHub)", "Kit", "GitHub", "LinkedIn", "Blog", "X", "Workshop", "Other", "Total", "Status"]]
         for r in summary_rows:
-            data.append([r["Fellow"], r["PurchaseProof"], r["Github(Project)_count"], r["Linkedin_count"], r["Blog_count"], r["X_count"], r["Workshop_count"], r["Other_count"], r["Total_Points"], r[thresh_col]])
+            who = r["Fellow"] + (f" ({r['Github']})" if r["Github"] != "-" else "")
+            data.append([who, r["PurchaseProof"], r["Github(Project)_count"], r["Linkedin_count"], r["Blog_count"], r["X_count"], r["Workshop_count"], r["Other_count"], r["Total_Points"], r[thresh_col]])
         t = Table(data, repeatRows=1)
         t.setStyle(TableStyle([("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey),
                                ("GRID", (0, 0), (-1, -1), 0.5, colors.grey),
@@ -286,7 +364,11 @@ def main():
     except Exception as e:
         print(f"PDF generation failed: {e}", file=sys.stderr)
 
-    print(f"Fellows: {len(fellows)}, submission files: {len(files)}, allocations -> {ALLOC_DIR}")
+    print(f"Fellows: {len(fellows)}, submission files: {len(files)}, github accounts mapped: {len(gmap)}, allocations -> {ALLOC_DIR}")
+    if unmapped:
+        print("UNMAPPED github accounts (add to github_overrides.json if valid):")
+        for u in sorted(unmapped):
+            print(f" - @{u} in {', '.join(sorted(unmapped[u]))}")
     if errors:
         print("ERRORS (fix these files):")
         for e in errors:

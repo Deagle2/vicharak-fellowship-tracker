@@ -7,6 +7,7 @@ First PR from any fellow must be `[PurchaseProof] Your Name — board/invoice im
 **Checklist (maintainer merges = accept = points):**
 - [ ] Added ONE file: `submissions/<Name>_<Type>_<YYYY-MM-DD>.json` (copied from TEMPLATE.json)
 - [ ] `fellow` exactly matches a name in `fellows.csv`
+- [ ] `github` is your GitHub username/URL and maps to that fellow (see `github_map.json`; admin fixes via `github_overrides.json`)
 - [ ] `type` matches PR prefix
 - [ ] `link` starts with http(s):// and is public/openable
 - [ ] `date` is YYYY-MM-DD
