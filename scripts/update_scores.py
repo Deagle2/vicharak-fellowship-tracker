@@ -201,6 +201,13 @@ def main():
     # persist resolved map (username -> Fellow) for the PR-attribution workflow + admin review
     GITHUB_MAP_JSON.write_text(json.dumps({u: fellows[k] for u, k in sorted(gmap.items())}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    # drop orphan per-fellow sheets left from removed fellows
+    valid_safe = {safe_name(v) for v in fellows.values()}
+    for p in ALLOC_DIR.glob("*.csv"):
+        if p.stem not in valid_safe and p.name != "summary.csv":
+            p.unlink()
+            print(f"removed orphan allocation: {p.name}")
+
     summary_rows = []
     for fkey in sorted(store, key=lambda k: fellows[k].lower()):
         display = fellows[fkey]
@@ -274,7 +281,7 @@ def main():
     # Patch README block between SCORES_START/END (show top 20 + link to full)
     try:
         top = ranked[:20]
-        table = ["| Rank | Fellow | GitHub | Kit | Total | Status |", "|---:|---|---|---|---|---:|---|"]
+        table = ["| Rank | Fellow | GitHub | Kit | Total | Status |", "|---:|---|---|---|---:|---|"]
         for i, r in enumerate(top, 1):
             table.append(f"| {i} | {r['Fellow']} | {r['Github']} | {r['PurchaseProof']} | **{r['Total_Points']}** | {r[thresh_col]} |")
         block = (f"_Updated {datetime.now().strftime('%Y-%m-%d %H:%M')} UTC - Threshold {threshold} - {len([r for r in ranked if r['Total_Points']>0])}/{len(ranked)} with points_\n\n"
