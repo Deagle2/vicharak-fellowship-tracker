@@ -1,33 +1,29 @@
-# Joining the repo (purchase proof gate)
+# Joining the repo (purchase proof = first PR)
 
-Public repo, but **edit access is gated**: only Fellows with a Vicharak kit get in.
+Public to view. To submit, your **first PR must be your purchase proof**.
 
 ## Student (join)
-1. Issues → New → `Request repo access (purchase proof)` (or click: Issues → New Issue → Join).
-2. Fill:
-   - Full name = exact `fellows.csv` name (e.g. `Arjun A`)
-   - GitHub username = account opening the issue (invite goes to issue author only - anti-impersonation)
-   - Email, College, Board + Order ID
-   - Proof: **rename first** as `<Full-Name>_proof.png/jpg/pdf`, then drag-drop board photo / invoice screenshot / unboxing pic. Multiple OK.
-3. Submit. Bot comments within ~30s:
-   - `join-valid` = name found + proof seen → wait for admin
-   - `join-invalid` = fix (usually name mismatch or missing image) → Edit issue, bot re-checks.
-4. Admin adds `approved` label → bot invites you (`push` access). Accept invite via email / bell icon.
+1. Fork this repo.
+2. Copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json`
+   - Example: `submissions/Arjun_A_PurchaseProof_2026-09-28.json`
+3. Fill:
+   - `fellow` = exact `fellows.csv` name (e.g. `Arjun A`)
+   - `github` = your GitHub username / profile URL (must map to the fellow above)
+   - `type` = `PurchaseProof`
+   - `title` = e.g. `Axon Lite kit proof`
+   - `link` = `https://...` to your board photo / invoice / unboxing pic (must start with http:// or https://)
+   - `date` = `YYYY-MM-DD`
+4. Open a PR titled `[PurchaseProof] Your Name`. PR body must contain the link.
+5. Maintainer merges → your Kit flips to `YES`. Close without merge = reject (fix and resubmit).
 
-One issue per person. Do not open PRs to join.
+## After proof is accepted
+Only after your PurchaseProof PR is merged will regular submissions be accepted:
+- Blog / Linkedin / X / Project / Workshop / Documentation / Video / Community / Bug / Feature / Referral / Demo
+- One submission = one JSON file = one PR, e.g. `submissions/Arjun_A_Blog_2026-09-28.json` with PR title `[Blog] Arjun A — https://...`
+
+> If your first PR is not the purchase proof, it will be closed / not accepted. Submit the PurchaseProof PR first, then resubmit the others.
 
 ## Admin (accept / reject)
-- Triage `join-request` issues. Check: name in `fellows.csv`? Proof opens and looks genuine? Filename has their name?
-- Accept: add label `approved` (bot re-validates, then invites issue author).
-  - Needs repo secret `ONBOARD_PAT` (classic PAT, `repo` scope, from an admin) for full-auto invite. Without it, bot posts the one-line manual command - run it, then close issue as completed:
-    ```
-    gh api -X PUT repos/nilangwork17/vicharak-fellowship-tracker/collaborators/USERNAME -f permission=push
-    ```
-- Reject: close as not planned with reason (no proof / name not in list). No invite happens.
-- Remove/revoke later: `gh api -X DELETE repos/.../collaborators/USERNAME` or Settings → Collaborators → Remove.
-
-## Files
-- Form: `.github/ISSUE_TEMPLATE/join-request.yml`
-- Validator: `scripts/validate_join.py` (`--body BODY.md --fellows fellows.csv --author LOGIN`)
-- Workflow: `.github/workflows/onboard.yml` (validate on open/edit, invite on `approved`)
-- Test locally: `python scripts/validate_join.py --body /tmp/body.md --author testuser`
+- Triage `PurchaseProof` PRs first. Check: `fellow` in `fellows.csv`? `link` opens and looks genuine (board / invoice / unboxing)?
+- Accept: merge the PurchaseProof PR → Kit flips to `YES` via scorer. Then regular PRs from that fellow can be reviewed / merged.
+- Reject: close with reason (no proof / name not in list / bad link). No points. If a fellow opens a non-proof PR before proof is merged, close it as not accepted and ask for PurchaseProof first.

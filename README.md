@@ -5,8 +5,14 @@ Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub A
 Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the Fellowship sheet — 59 fellows: 61 rows minus 2 removed dupes, Lakshya split into normal + Team Jatayu rows, plus name fix for Aaditya Goswami).
 Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 (first-PR kit gate, flips Kit to YES). Threshold = 250.
 
-## Join (purchase proof required)
-Public to view, gated to edit. To get edit access: Issues → `Request repo access` → attach `<Your-Name>_proof.png` (board / invoice). Bot checks name in `fellows.csv` + proof attached. Admin adds `approved` → bot invites you. Full steps: [`docs/JOIN.md`](docs/JOIN.md).
+## Join — purchase proof must be your first PR
+Your purchase proof is your first PR. No Issue request needed:
+1. Fork → add `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json` with `type: PurchaseProof` and `link` to your board / invoice photo.
+2. Open a PR titled `[PurchaseProof] Your Name`. On merge, your Kit flips to `YES`.
+3. Only after your PurchaseProof PR is merged will regular submissions (Blog, Linkedin, X, Project, Workshop, Documentation, Video, Community, Bug, Feature, Referral, Demo) be accepted.
+4. If your first PR is not the purchase proof, it will be closed / not accepted — submit the PurchaseProof PR first, then resubmit the others.
+
+Full steps: [`docs/JOIN.md`](docs/JOIN.md).
 
 ## Flow
 1. Student: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_<Type>_<YYYY-MM-DD>.json`
