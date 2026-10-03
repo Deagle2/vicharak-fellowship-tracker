@@ -6,11 +6,11 @@ Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the
 Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 (first-PR kit gate, flips Kit to YES). Threshold = 250.
 
 ## Join — purchase proof must be your first PR
-Your purchase proof is your first PR. No Issue request needed:
-1. Fork → add `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json` with `type: PurchaseProof` and `link` to your board / invoice photo.
-2. Open a PR titled `[PurchaseProof] Your Name`. On merge, your Kit flips to `YES`.
-3. Only after your PurchaseProof PR is merged will regular submissions (Blog, Linkedin, X, Project, Workshop, Documentation, Video, Community, Bug, Feature, Referral, Demo) be accepted.
-4. If your first PR is not the purchase proof, it will be closed / not accepted — submit the PurchaseProof PR first, then resubmit the others.
+1. Submit your screenshot in your submission file: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json` and put your board / invoice photo link in it.
+2. Open a PR with that link, titled `[PurchaseProof] Your Name`.
+3. I check it. If it is valid purchase proof, I accept (merge) the PR and your Kit status in the live score list below flips to `YES`.
+
+If your first PR is not the purchase proof, it will not be accepted. Do the proof first, then send regular submissions.
 
 Full steps: [`docs/JOIN.md`](docs/JOIN.md).
 
