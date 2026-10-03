@@ -1,37 +1,68 @@
-# Vicharak Campus Fellowship — Submission Tracker
+# Vicharak Campus Fellowship - Submission Tracker
 
-Students submit via **Pull Request**. Maintainer **Merge = Accept** → GitHub Action auto-allocates links + points.
+Think of this repo as your fellowship marksheet.
 
-Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the Fellowship sheet — 59 fellows: 61 rows minus 2 removed dupes, Lakshya split into normal + Team Jatayu rows, plus name fix for Aaditya Goswami).
-Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 (first-PR kit gate, flips Kit to YES). Threshold = 250.
+You do work outside (blog, video, LinkedIn post, project), you send us the link here, I press Accept, and a robot automatically gives you points and updates the score list below.
 
-## Join — purchase proof must be your first PR
-1. Submit your screenshot in your submission file: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json`. Upload your board / invoice photo somewhere (Google Drive / Imgur / Linkedin post, etc. with public view on) and paste that `https://...` link in the `link` field.
-2. Open a PR with that link, titled `[PurchaseProof] Your Name`.
-3. I check it. If it is valid purchase proof, I accept (merge) the PR and your Kit status in the live score list below flips to `YES`.
+You need 250 points to become ELIGIBLE.
 
-If your first PR is not the purchase proof, it will not be accepted. Do the proof first, then send regular submissions.
+Points list (from `points.json`):
+Blog = 40, Linkedin = 40, X = 40, Project (GitHub) = 70, Workshop = 100, Documentation = 30, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 points, but it unlocks you.
 
-Full steps: [`docs/JOIN.md`](docs/JOIN.md).
+Student list comes from `fellows.csv` (59 fellows).
 
-## Flow
-1. Student: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_<Type>_<YYYY-MM-DD>.json`
-   Example: `submissions/Arjun_A_Blog_2026-09-28.json`
-2. Fill: `fellow` (exact name from fellows.csv), `type` (Blog/Linkedin/X/Project/Workshop/Documentation/Video/Community/Bug/Feature/Referral/Demo), `title`, `link`, `date`.
-3. Open PR with title: `[Blog] Arjun A — https://...` (or [Linkedin]/[X]/[Project]/[Workshop]).
-   PR body must contain the link.
-4. Maintainer reviews → **Merge = accept**, Close without merge = reject (no points).
-5. On push to `main`, `.github/workflows/score.yml` runs `scripts/update_scores.py`:
-   - validates all `submissions/*.json`
-   - groups by fellow + category
-   - rewrites `allocations/<Fellow>.csv` in screenshot layout + `allocations/summary.csv` + `fellowship_scores.pdf`
-   - auto-commits back to `main` if changed.
+## Step 0 - Join first: purchase proof must be your first PR
 
-## Screenshot layout (per-fellow CSV)
-Matches your reference image:
+You cannot submit anything until I know you have the kit. So your very first submission must be your kit proof.
+
+1. Upload your kit photo somewhere public. Take a photo of your board / invoice, upload it to Google Drive / Imgur / LinkedIn post (set to Anyone can view), and copy that `https://...` link.
+2. Fill the form: copy `submissions/TEMPLATE.json` to a new file named `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json`. Example: `submissions/Arjun_A_PurchaseProof_2026-09-28.json`. Paste your photo link in the `link` field.
+3. Send it for checking: open a PR titled `[PurchaseProof] Your Name`, and paste the same link in the PR description too.
+4. I check it. I open your link and see if it is really your board / bill. If yes, I press Merge (Accept) and your Kit in the score list below changes to `YES`. If no, I close it and you fix and resend.
+
+Rule: If your first PR is not the purchase proof, I will close it. Do proof first, then do the rest.
+
+Full steps with pictures in words: [`docs/JOIN.md`](docs/JOIN.md).
+
+## Step 1 - How to send your regular work (after proof is accepted)
+
+Only after your PurchaseProof is accepted, do this for Blog, Linkedin, X, Project, etc.
+
+1. Make your work public first and copy its link. Example: your Medium blog link, your x.com post link, your GitHub project link, your YouTube video link.
+2. Fill the form: copy `submissions/TEMPLATE.json` to `submissions/<Your-Name>_<Type>_<YYYY-MM-DD>.json`. Example: `submissions/Arjun_A_Blog_2026-09-28.json`.
+   - `fellow`: your exact name from `fellows.csv`, example `Arjun A`
+   - `type`: one word - Blog, Linkedin, X, Project, Workshop, Documentation, Video, Community, Bug, Feature, Referral, Demo
+   - `title`: short name of your work
+   - `link`: paste your work link here (must start with `https://` and open without login)
+   - `date`: today in `YYYY-MM-DD`
+3. Send it: open a PR titled `[Type] Your Name`. Example: `[Blog] Arjun A`. Paste the same link in the PR description so I can click fast.
+4. One file = one PR. Do not put 5 links in one file. Send 5 PRs.
+
+## Step 2 - How I check and give points
+
+I am the checker, the robot is the calculator.
+
+1. You tell me what it is: your `type` + PR title says `[Blog]` or `[X]`, etc.
+2. Robot checks only format: is the name correct? Does link start with `https://`? Is type valid?
+3. I click and verify by eye: does a `[Blog]` link really open a blog? Does an `[X]` link really open your X post? If yes, I press Merge = Accept and you get points. If no, I press Close = Reject and you get 0, fix and resend.
+4. After Merge, the robot runs automatically (`.github/workflows/score.yml` + `scripts/update_scores.py`):
+   - collects all accepted links
+   - groups them by person and type
+   - rewrites your marksheet files and updates the live score list below
+
+So: your title is your claim, my Merge is the approval.
+
+## Step 3 - Where to see your points
+
+- Live table below in this README (top 20, auto-updated on every Merge, do not edit it)
+- Full table: [`SCORES.md`](SCORES.md)
+- Computer file: [`allocations/summary.csv`](allocations/summary.csv)
+- PDF marksheet: [`fellowship_scores.pdf`](fellowship_scores.pdf)
+- Per-person file: `allocations/<Your-Name>.csv` looks like this:
+
 ```
 ,Submission 1,Submission 2,Submission 3,Submission 4,Submission 5,Points
-Names,<Fellow Name>,,,,,
+Names,Your Name,,,,,
 Github,<link>,<link>,,,, <pts>
 Linkedin,<link>,...,,, <pts>
 Blog,...
@@ -39,29 +70,25 @@ X,...
 Workshop,...
 Total,,,,,,<total>
 ```
-- 5 link columns minimum (extends if >5 in any category).
-- Points = count × per-type points.
-- `Total` = sum. `summary.csv` adds threshold flag (>=250 ELIGIBLE).
 
-## Repo map
-- `fellows.csv` — canonical list (do not edit manually, re-export from xlsx if needed)
-- `points.json` — edit points here, Action picks it up
-- `submissions/` — student JSONs only
-- `allocations/` — generated, do not hand-edit (overwritten)
-- `scripts/update_scores.py` — scoring logic, also runnable locally: `python scripts/update_scores.py`
-- `fellowship_scores.pdf` — generated human-readable scorecard (links + points)
+Points = number of accepted links x points for that type. Total = sum of all. 250+ = ELIGIBLE, below = BELOW.
 
-## Local test
-```
-python scripts/update_scores.py
-```
+## What is inside this repo (simple map)
 
-## Admin
+- `fellows.csv` - class list. Do not edit by hand.
+- `points.json` - points rule book. If I change points here, robot follows it.
+- `submissions/` - your filled forms only (JSON files). This is the only folder you touch.
+- `allocations/` - auto-made marksheets. Do not edit, robot overwrites them.
+- `scripts/update_scores.py` - robot brain. Run `python scripts/update_scores.py` to test locally.
+- `fellowship_scores.pdf` - auto-made PDF of all scores.
+
+## For Admin (me)
+
 - Repo: https://github.com/nilangwork17/vicharak-fellowship-tracker
-- Invite students as collaborators with `Triage`/`Write` (PR only, protect `main` → require PR, no direct push).
-- To re-fetch fellows: re-run `extract_fellows.py` on updated `Fellowship program.xlsx` → overwrite `fellows.csv`.
+- Keep `main` protected - only via PR, no direct push.
+- To update students: re-export `Fellowship program.xlsx` to `fellows.csv`.
 
-## Admin — Live Score List (auto-updated on every merge, do not edit below)
+## Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
 _Updated 2026-10-01 10:55 UTC - Threshold 250 - 0/59 with points_
 
