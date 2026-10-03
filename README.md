@@ -28,14 +28,14 @@ Full steps with pictures in words: [`docs/JOIN.md`](docs/JOIN.md).
 
 Only after your PurchaseProof is accepted, do this for Blog, Linkedin, X, Project, etc.
 
-1. Make your work public first and copy its link. Example: your Medium blog link, your x.com post link, your GitHub project link, your YouTube video link.
+1. Make your draft viewable first - do NOT post on social media yet. Put your draft in a Google Doc (or similar) with `Anyone with link can view`, and copy that `https://...` link. This is what you send for review. Only after I approve the PR, post it on the dedicated platform - Medium for Blog, x.com for X, LinkedIn for Linkedin, GitHub for Project, YouTube for Video.
 2. Fill the form: copy `submissions/TEMPLATE.json` to `submissions/<Your-Name>_<Type>_<YYYY-MM-DD>.json`. Example: `submissions/Arjun_A_Blog_2026-09-28.json`.
    - `fellow`: your exact name from `fellows.csv`, example `Arjun A`
    - `type`: one word - Blog, Linkedin, X, Project, Workshop, Documentation, Video, Community, Bug, Feature, Referral, Demo
    - `title`: short name of your work
-   - `link`: paste your work link here (must start with `https://` and open without login)
+   - `link`: paste your Google Doc draft link here for review (must start with `https://` and open without login). After approval you will post the final link on the dedicated platform.
    - `date`: today in `YYYY-MM-DD`
-3. Send it: open a PR titled `[Type] Your Name`. Example: `[Blog] Arjun A`. Paste the same link in the PR description so I can click fast.
+3. Send it: open a PR titled `[Type] Your Name`. Example: `[Blog] Arjun A`. Paste the same Google Doc link in the PR description so I can click fast.
 4. One file = one PR. Do not put 5 links in one file. Send 5 PRs.
 
 ## Step 2 - How I check and give points
@@ -44,7 +44,7 @@ I am the checker, the robot is the calculator.
 
 1. You tell me what it is: your `type` + PR title says `[Blog]` or `[X]`, etc.
 2. Robot checks only format: is the name correct? Does link start with `https://`? Is type valid?
-3. I click and verify by eye: does a `[Blog]` link really open a blog? Does an `[X]` link really open your X post? If yes, I press Merge = Accept and you get points. If no, I press Close = Reject and you get 0, fix and resend.
+3. I click and verify by eye: I open your Google Doc draft, check it matches the claimed `type` (`[Blog]` = blog draft, `[X]` = X post text, etc). If good, I press Merge = Accept. You then post the final version on the dedicated social platform. If not good, I press Close = Reject and you get 0, fix and resend.
 4. After Merge, the robot runs automatically (`.github/workflows/score.yml` + `scripts/update_scores.py`):
    - collects all accepted links
    - groups them by person and type
