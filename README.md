@@ -6,7 +6,7 @@ Source of truth for fellows: `fellows.csv` (synced from the `Batch 1` tab of the
 Points: `points.json` — Blog/LinkedIn/X = 40, Documentation = 30, GitHub Project = 70, Workshop = 100, Video = 90, Community = 20, Bug = 25, Feature = 60, Referral = 30, Demo = 50. PurchaseProof = 0 (first-PR kit gate, flips Kit to YES). Threshold = 250.
 
 ## Join — purchase proof must be your first PR
-1. Submit your screenshot in your submission file: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json` and put your board / invoice photo link in it.
+1. Submit your screenshot in your submission file: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json`. Upload your board / invoice photo somewhere (Google Drive / Imgur / Linkedin post, etc. with public view on) and paste that `https://...` link in the `link` field.
 2. Open a PR with that link, titled `[PurchaseProof] Your Name`.
 3. I check it. If it is valid purchase proof, I accept (merge) the PR and your Kit status in the live score list below flips to `YES`.
 

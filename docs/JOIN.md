@@ -3,7 +3,7 @@
 Public to view. To submit, your **first PR must be your purchase proof**.
 
 ## Student — 3 simple steps
-1. Submit your screenshot in your submission file: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json` (example: `submissions/Arjun_A_PurchaseProof_2026-09-28.json`) and put your board / invoice photo link in the `link` field.
+1. Submit your screenshot in your submission file: copy `submissions/TEMPLATE.json` → `submissions/<Your-Name>_PurchaseProof_<YYYY-MM-DD>.json` (example: `submissions/Arjun_A_PurchaseProof_2026-09-28.json`). Upload your board / invoice photo somewhere (Google Drive / Imgur / Linkedin post, etc. with public view on) and paste that `https://...` link in the `link` field.
 2. Open a PR with that link, titled `[PurchaseProof] Your Name`.
 3. I check it. If it is valid purchase proof, I accept (merge) the PR and your Kit status in the live score list flips to `YES`.
 
