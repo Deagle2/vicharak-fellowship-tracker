@@ -17,6 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Use admin PAT so bot can push scores back despite main branch protection.
+          # Falls back to GITHUB_TOKEN if SCORE_PAT not set (will fail push on protected branch).
+          token: ${{ secrets.SCORE_PAT || github.token }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
