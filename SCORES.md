@@ -1,4 +1,4 @@
-# Fellowship Scores - 2026-10-05 06:27 UTC
+# Fellowship Scores - 2026-10-05 06:29 UTC
 
 Threshold: 250 (ELIGIBLE >= 250)
 
@@ -37,7 +37,7 @@ Threshold: 250 (ELIGIBLE >= 250)
 | 31 | M.R.KIRUTHICK | @kiruthick12 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 32 | MAJJI BHANU PRAKASH | @bhanumajji | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 33 | MOHIT KUMAR THAKUR | @mohitthakur2007 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 34 | Nathan Mathews | @deagle2 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 34 | Nathan Mathews | @deagle2 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 35 | Nishant Sanjay Basmatkar | @nishant6540 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 36 | Pradyumna Dalmia | @aurtikent | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 37 | Pranav Dhole | @meowchao | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
