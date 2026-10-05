@@ -1,4 +1,4 @@
-# Fellowship Scores - 2026-10-05 06:30 UTC
+# Fellowship Scores - 2026-10-05 06:31 UTC
 
 Threshold: 250 (ELIGIBLE >= 250)
 
@@ -20,7 +20,7 @@ Threshold: 250 (ELIGIBLE >= 250)
 | 14 | Arush Dwivedi | @arushdwivedi11 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 15 | Ashish Kumar Pal | @jipal5212-wq | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 16 | CHERALA ROHAN | @therohancherala | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 17 | Gantla Venkata Sravan | @sravangantla007 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 17 | Gantla Venkata Sravan | @sravangantla007 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 18 | Hardik Kumar Sinha | @hksinha510 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 19 | Harshit Kumar Sharma | @harshit2387 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 20 | hruday duppalapudi | @hruday-inventory-03 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
