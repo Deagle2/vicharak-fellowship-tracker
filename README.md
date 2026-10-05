@@ -90,7 +90,7 @@ Points = number of accepted links x points for that type. Total = sum of all. 25
 
 ## Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-10-05 06:31 UTC - Threshold 250 - 0/59 with points_
+_Updated 2026-10-05 18:43 UTC - Threshold 250 - 0/60 with points_
 
 | Rank | Fellow | GitHub | Kit | Total | Status |
 |---:|---|---|---|---:|---|
@@ -101,21 +101,21 @@ _Updated 2026-10-05 06:31 UTC - Threshold 250 - 0/59 with points_
 | 5 | Aditya Reddy | @aditya-1020 | NO | **0** | BELOW |
 | 6 | Amaan Pathan | @amaan9737 | NO | **0** | BELOW |
 | 7 | Amrutha M | @amrutham-24 | NO | **0** | BELOW |
-| 8 | Ankit raj | @ankitra-j | NO | **0** | BELOW |
-| 9 | ANNESTIO PIETY CASTANHA | @apcetc | YES | **0** | BELOW |
-| 10 | Anusheel Singh | @anusheelsingh12 | NO | **0** | BELOW |
-| 11 | Arafat Babar | @arafatbabar | NO | **0** | BELOW |
-| 12 | Arijit Ghosh | @ari-jit | NO | **0** | BELOW |
-| 13 | Arjun A | @arjnchrn | NO | **0** | BELOW |
-| 14 | Arush Dwivedi | @arushdwivedi11 | NO | **0** | BELOW |
-| 15 | Ashish Kumar Pal | @jipal5212-wq | NO | **0** | BELOW |
-| 16 | CHERALA ROHAN | @therohancherala | NO | **0** | BELOW |
-| 17 | Gantla Venkata Sravan | @sravangantla007 | YES | **0** | BELOW |
-| 18 | Hardik Kumar Sinha | @hksinha510 | NO | **0** | BELOW |
-| 19 | Harshit Kumar Sharma | @harshit2387 | YES | **0** | BELOW |
-| 20 | hruday duppalapudi | @hruday-inventory-03 | NO | **0** | BELOW |
+| 8 | Anandu Rajan | - | NO | **0** | BELOW |
+| 9 | Ankit raj | @ankitra-j | NO | **0** | BELOW |
+| 10 | ANNESTIO PIETY CASTANHA | @apcetc | YES | **0** | BELOW |
+| 11 | Anusheel Singh | @anusheelsingh12 | NO | **0** | BELOW |
+| 12 | Arafat Babar | @arafatbabar | NO | **0** | BELOW |
+| 13 | Arijit Ghosh | @ari-jit | NO | **0** | BELOW |
+| 14 | Arjun A | @arjnchrn | NO | **0** | BELOW |
+| 15 | Arush Dwivedi | @arushdwivedi11 | NO | **0** | BELOW |
+| 16 | Ashish Kumar Pal | @jipal5212-wq | NO | **0** | BELOW |
+| 17 | CHERALA ROHAN | @therohancherala | NO | **0** | BELOW |
+| 18 | Gantla Venkata Sravan | @sravangantla007 | YES | **0** | BELOW |
+| 19 | Hardik Kumar Sinha | @hksinha510 | NO | **0** | BELOW |
+| 20 | Harshit Kumar Sharma | @harshit2387 | YES | **0** | BELOW |
 
-_Showing top 20 of 59 - full list in [SCORES.md](SCORES.md)_
+_Showing top 20 of 60 - full list in [SCORES.md](SCORES.md)_
 <!-- SCORES_END -->
 
 Full table: [`SCORES.md`](SCORES.md) · Machine-readable: [`allocations/summary.csv`](allocations/summary.csv) · PDF: [`fellowship_scores.pdf`](fellowship_scores.pdf)
