@@ -23,6 +23,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
           python - <<'EOF' > /tmp/msg.md
           import csv, json, re
@@ -58,13 +59,37 @@ jobs:
                       gmap[str(user).strip().lstrip("@").lower()] = key
           except FileNotFoundError:
               pass
+          # Kit status from last merged summary (source of truth for score list)
+          kitmap = {}
+          try:
+              with open("allocations/summary.csv", encoding="utf-8") as f:
+                  for row in csv.DictReader(f):
+                      n = (row.get("Fellow") or "").strip()
+                      if not n:
+                          continue
+                      key = re.sub(r"\s+", " ", n).lower()
+                      kitmap[key] = (row.get("PurchaseProof") or "NO").strip().upper()
+          except FileNotFoundError:
+              pass
           author = os.environ.get("PR_AUTHOR", "").lower()
+          title = os.environ.get("PR_TITLE", "")
+          is_proof = "purchaseproof" in title.lower().replace(" ", "").replace("-", "")
           key = gmap.get(author)
           if key:
-              print(f"PR opened by @{author} - attributed to **{fellows[key]}**. Points from merged files go to that name. Admin: verify each JSON's `fellow` matches (CI fails on mismatch).")
+              name = fellows[key]
+              kit = kitmap.get(key, "NO")
+              print(f"PR opened by @{author} - attributed to **{name}**. Points from merged files go to that name. Admin: verify each JSON's `fellow` matches (CI fails on mismatch).")
+              print(f"Kit status (score list): **{kit}**.")
+              if kit == "NO" and not is_proof:
+                  print("WARNING: Kit = NO and this PR is NOT PurchaseProof -> per rule first PR must be proof. Admin: close/reject unless proof is merged first.")
+              elif kit == "NO" and is_proof:
+                  print("This is a PurchaseProof PR with Kit = NO -> review proof link, merge flips Kit to YES.")
+              elif kit == "YES":
+                  print("Kit = YES -> normal review: open link, verify it matches claimed type, then Approve + Merge.")
           else:
               print(f"PR opened by @{author} - **no fellow mapping found** (not in fellows.csv sheet URLs or github_overrides.json).")
               print("Student: add your GitHub URL to the Fellowship sheet or ask admin to map it in `github_overrides.json`. Ensure JSON `fellow` is your exact sheet name.")
+              print("Kit status: UNKNOWN (no mapping) - Admin: verify identity before merging.")
           EOF
           cat /tmp/msg.md
           gh pr comment "$PR_NUMBER" --body-file /tmp/msg.md
