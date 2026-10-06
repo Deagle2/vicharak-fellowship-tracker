@@ -1,6 +1,6 @@
-# Submissions by Fellow - 2026-10-05 13:37 UTC
+# Submissions by Fellow - 2026-10-06 07:43 UTC
 
-_Total: 10 accepted submissions across 10/60 fellows_
+_Total: 11 accepted submissions across 11/60 fellows_
 
 ## ANNESTIO PIETY CASTANHA - 1 submission(s), 0 pts
 - [PurchaseProof] Vicharak Kit Purchase Proof (2026-10-03) - https://raw.githubusercontent.com/apcetc/Vicharak_Campus_Fellowship_APC-/main/submissions/purchase_proof/INVOICE_APC.png - 0 pts - `ANNESTIO_PIETY_CASTANHA_PurchaseProof_2026-10-03.json`
@@ -25,6 +25,9 @@ _Total: 10 accepted submissions across 10/60 fellows_
 
 ## Shreya Veni - 1 submission(s), 0 pts
 - [PurchaseProof] ShrikeFi purchase proof (2026-10-03) - https://github.com/user-attachments/assets/9132479f-a3f6-4c4f-aa98-1484a388c49d - 0 pts - `Shreya_Veni_PurchaseProof_2026-10-03.json`
+
+## Sumit Maheshwari - 1 submission(s), 0 pts
+- [PurchaseProof] Just got a brand new development board from Vicharak (2026-10-06) - https://lnkd.in/p/gFtzT9YD - 0 pts - `Sumit_Maheshwari_PurchaseProof_2026-10-06.json`
 
 ## Vaibhav Santosh Tiwari - 1 submission(s), 0 pts
 - [PurchaseProof] Purchase proof - Shrike Lite, Order #6489 (2026-10-03) - https://raw.githubusercontent.com/orignalbox/vicharak-fellowship-tracker/proof-assets/Vaibhav_Santosh_Tiwari_proof.png - 0 pts - `Vaibhav_Santosh_Tiwari_PurchaseProof_2026-10-03.json`

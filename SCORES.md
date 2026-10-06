@@ -1,4 +1,4 @@
-# Fellowship Scores - 2026-10-05 13:37 UTC
+# Fellowship Scores - 2026-10-06 07:43 UTC
 
 Threshold: 250 (ELIGIBLE >= 250)
 
@@ -56,7 +56,7 @@ Threshold: 250 (ELIGIBLE >= 250)
 | 50 | Shreya Jaiswal | @shreya05-j | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 51 | Shreya Veni | @concatenate-this | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 52 | Smit Savani | @smit-45 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 53 | Sumit Maheshwari | @roboticist-blip | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 53 | Sumit Maheshwari | @roboticist-blip | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 54 | Utkarsh Verma | @sigma-verma | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 55 | Vaibhav Santosh Tiwari | @orignalbox | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 56 | Veer Kishan Whabi | @veeru24ec006 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
