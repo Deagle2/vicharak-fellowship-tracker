@@ -1,0 +1,84 @@
+name: kit-gate
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'submissions/**'
+
+permissions:
+  contents: read
+
+jobs:
+  kit-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check Kit status (PurchaseProof gate)
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          python - <<'EOF'
+          import csv, json, re, os, sys
+          def users(raw):
+              out = []
+              for part in re.split(r"[,;\s]+", raw or ""):
+                  part = part.strip().strip("<>").rstrip("/")
+                  if not part:
+                      continue
+                  m = re.search(r"github\.com/([A-Za-z0-9-]+)", part, re.IGNORECASE)
+                  u = m.group(1).lower() if m else part.lstrip("@").lower()
+                  if u not in out:
+                      out.append(u)
+              return out
+          fellows, gmap = {}, {}
+          with open("fellows.csv", encoding="utf-8") as f:
+              for row in csv.DictReader(f):
+                  n = (row.get("Full name") or "").strip()
+                  if not n:
+                      continue
+                  key = re.sub(r"\s+", " ", n).lower()
+                  fellows.setdefault(key, re.sub(r"\s+", " ", n).strip())
+                  for u in users(row.get("Github") or ""):
+                      gmap.setdefault(u, key)
+          try:
+              ov = json.load(open("github_overrides.json", encoding="utf-8"))
+              for user, name in (ov or {}).items():
+                  if str(user).startswith("_") or str(user) == "example_user_do_not_use":
+                      continue
+                  key = re.sub(r"\s+", " ", str(name)).lower()
+                  if key in fellows:
+                      gmap[str(user).strip().lstrip("@").lower()] = key
+          except FileNotFoundError:
+              pass
+          kitmap = {}
+          try:
+              with open("allocations/summary.csv", encoding="utf-8") as f:
+                  for row in csv.DictReader(f):
+                      n = (row.get("Fellow") or "").strip()
+                      if not n:
+                          continue
+                      key = re.sub(r"\s+", " ", n).lower()
+                      kitmap[key] = (row.get("PurchaseProof") or "NO").strip().upper()
+          except FileNotFoundError:
+              pass
+          author = os.environ.get("PR_AUTHOR", "").lower()
+          title = os.environ.get("PR_TITLE", "")
+          is_proof = "purchaseproof" in title.lower().replace(" ", "").replace("-", "")
+          key = gmap.get(author)
+          if not key:
+              print(f"FAIL: PR author @{author} not mapped to any fellow. Ask admin to map github username.")
+              sys.exit(1)
+          name = fellows[key]
+          kit = kitmap.get(key, "NO")
+          print(f"Author @{author} -> {name} | Kit={kit} | is_proof={is_proof} | title={title}")
+          if kit == "NO" and not is_proof:
+              print(f"FAIL: Kit=NO for {name} and this PR is NOT PurchaseProof. First PR must be proof. Reject/close this PR.")
+              sys.exit(1)
+          print(f"PASS: Kit={kit} {'(proof PR, will flip to YES on merge)' if kit=='NO' and is_proof else '(normal review)'} for {name}.")
+          EOF
