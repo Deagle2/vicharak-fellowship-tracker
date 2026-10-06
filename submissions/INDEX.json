@@ -61,6 +61,14 @@
   ],
   "Saksham Sud": [
     {
+      "type": "Project",
+      "points": 70,
+      "title": "ShrikeFi BLE find-my-board tag (iBeacon + Find Me + last-seen map)",
+      "link": "https://github.com/Geneticscrol/shrikefi-ble-tag",
+      "date": "2026-10-06",
+      "file": "Saksham_Sud_Project_2026-10-06.json"
+    },
+    {
       "type": "PurchaseProof",
       "points": 0,
       "title": "Shrike Lite + ShrikeFi purchase proof, Order #6325",

@@ -1,6 +1,6 @@
-# Submissions by Fellow - 2026-10-06 07:43 UTC
+# Submissions by Fellow - 2026-10-06 10:37 UTC
 
-_Total: 11 accepted submissions across 11/60 fellows_
+_Total: 12 accepted submissions across 11/60 fellows_
 
 ## ANNESTIO PIETY CASTANHA - 1 submission(s), 0 pts
 - [PurchaseProof] Vicharak Kit Purchase Proof (2026-10-03) - https://raw.githubusercontent.com/apcetc/Vicharak_Campus_Fellowship_APC-/main/submissions/purchase_proof/INVOICE_APC.png - 0 pts - `ANNESTIO_PIETY_CASTANHA_PurchaseProof_2026-10-03.json`
@@ -20,7 +20,8 @@ _Total: 11 accepted submissions across 11/60 fellows_
 ## Rudra Das - 1 submission(s), 0 pts
 - [PurchaseProof] Purchase proof of shrike lite, from Vicharak website, order number #4654 (2026-10-05) - https://drive.google.com/file/d/1MZLztG02_bqR_z3ZRcP0hvcpkmajiLCZ/view?usp=sharing - 0 pts - `Rudra_Das_PurchaseProof_2026-10-05.json`
 
-## Saksham Sud - 1 submission(s), 0 pts
+## Saksham Sud - 2 submission(s), 70 pts
+- [Project] ShrikeFi BLE find-my-board tag (iBeacon + Find Me + last-seen map) (2026-10-06) - https://github.com/Geneticscrol/shrikefi-ble-tag - 70 pts - `Saksham_Sud_Project_2026-10-06.json`
 - [PurchaseProof] Shrike Lite + ShrikeFi purchase proof, Order #6325 (2026-10-05) - https://raw.githubusercontent.com/Geneticscrol/vicharak-fellowship-tracker/proof-assets/proofs/Saksham_Sud_proof.png - 0 pts - `Saksham_Sud_PurchaseProof_2026-10-05.json`
 
 ## Shreya Veni - 1 submission(s), 0 pts
