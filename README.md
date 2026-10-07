@@ -90,7 +90,7 @@ Points = number of accepted links x points for that type. Total = sum of all. 25
 
 ## Live Score List (auto-updated on every merge, do not edit below)
 <!-- SCORES_START -->
-_Updated 2026-10-06 10:37 UTC - Threshold 250 - 1/60 with points_
+_Updated 2026-10-07 13:09 UTC - Threshold 250 - 1/60 with points_
 
 | Rank | Fellow | GitHub | Kit | Total | Status |
 |---:|---|---|---|---:|---|
@@ -113,7 +113,7 @@ _Updated 2026-10-06 10:37 UTC - Threshold 250 - 1/60 with points_
 | 17 | Ashish Kumar Pal | @jipal5212-wq | NO | **0** | BELOW |
 | 18 | CHERALA ROHAN | @therohancherala | NO | **0** | BELOW |
 | 19 | Gantla Venkata Sravan | @sravangantla007 | YES | **0** | BELOW |
-| 20 | Hardik Kumar Sinha | @hksinha510 | NO | **0** | BELOW |
+| 20 | Hardik Kumar Sinha | @hksinha510 | YES | **0** | BELOW |
 
 _Showing top 20 of 60 - full list in [SCORES.md](SCORES.md)_
 <!-- SCORES_END -->
