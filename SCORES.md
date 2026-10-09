@@ -1,30 +1,30 @@
-# Fellowship Scores - 2026-10-08 13:18 UTC
+# Fellowship Scores - 2026-10-09 19:30 UTC
 
 Threshold: 250 (ELIGIBLE >= 250)
 
 | Rank | Fellow | GitHub | Kit | Project | LinkedIn | Blog | X | Workshop | Other | Total | Status |
 |---:|---|---|---|---|---|---|---|---|---|---|---|
 | 1 | Saksham Sud | @geneticscrol | YES | 1 | 0 | 0 | 0 | 0 | 0 | **70** | BELOW |
-| 2 | Aaditya Goswami | @aadii02 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 3 | Abhishek Jain | @abhishek261007 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 4 | Adeep AG | @adeep13 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 5 | Aditya Nukala | @adikp98 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 6 | Aditya Reddy | @aditya-1020 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 7 | Amaan Pathan | @amaan9737 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 8 | Amrutha M | @amrutham-24 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 9 | Anandu Rajan | @anandurajan1209 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 10 | Ankit raj | @ankitra-j | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 11 | ANNESTIO PIETY CASTANHA | @apcetc | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 12 | Anusheel Singh | @anusheelsingh12 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 13 | Arafat Babar | @arafatbabar | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 14 | Arijit Ghosh | @ari-jit | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 15 | Arjun A | @arjnchrn | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 16 | Arush Dwivedi | @arushdwivedi11 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 17 | Ashish Kumar Pal | @jipal5212-wq | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 18 | CHERALA ROHAN | @therohancherala | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 19 | Gantla Venkata Sravan | @sravangantla007 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 20 | Hardik Kumar Sinha | @hksinha510 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 21 | Harshit Kumar Sharma | @harshit2387 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 2 | Harshit Kumar Sharma | @harshit2387 | YES | 0 | 0 | 0 | 1 | 0 | 0 | **40** | BELOW |
+| 3 | Aaditya Goswami | @aadii02 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 4 | Abhishek Jain | @abhishek261007 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 5 | Adeep AG | @adeep13 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 6 | Aditya Nukala | @adikp98 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 7 | Aditya Reddy | @aditya-1020 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 8 | Amaan Pathan | @amaan9737 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 9 | Amrutha M | @amrutham-24 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 10 | Anandu Rajan | @anandurajan1209 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 11 | Ankit raj | @ankitra-j | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 12 | ANNESTIO PIETY CASTANHA | @apcetc | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 13 | Anusheel Singh | @anusheelsingh12 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 14 | Arafat Babar | @arafatbabar | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 15 | Arijit Ghosh | @ari-jit | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 16 | Arjun A | @arjnchrn | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 17 | Arush Dwivedi | @arushdwivedi11 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 18 | Ashish Kumar Pal | @jipal5212-wq | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 19 | CHERALA ROHAN | @therohancherala | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 20 | Gantla Venkata Sravan | @sravangantla007 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 21 | Hardik Kumar Sinha | @hksinha510 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 22 | hruday duppalapudi | @hruday-inventory-03 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 23 | JANAPAATI ROHITH | @janapaatirohith | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 24 | JARIWALA ANIKET AJAYKUMAR | @aniketjariwala28 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
@@ -42,7 +42,7 @@ Threshold: 250 (ELIGIBLE >= 250)
 | 36 | Nathan Mathews | @deagle2 | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 37 | Nishant Sanjay Basmatkar | @nishant6540 | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 38 | Pradyumna Dalmia | @aurtikent | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
-| 39 | Pranav Dhole | @meowchao | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
+| 39 | Pranav Dhole | @meowchao | YES | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 40 | Praveen Kumar | @praveen-tek | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 41 | Pritika Gatike | @pritikagatike | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |
 | 42 | Pruthvi M | @pruthviagi | NO | 0 | 0 | 0 | 0 | 0 | 0 | **0** | BELOW |

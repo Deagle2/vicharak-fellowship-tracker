@@ -1,4 +1,24 @@
 {
+  "Adeep AG": [
+    {
+      "type": "PurchaseProof",
+      "points": 0,
+      "title": "Shrike Lite Order #4726",
+      "link": "https://drive.google.com/drive/u/0/folders/1h7LZbNftaQJHPZZ7_Fp8lw2rfFcRpzPM",
+      "date": "2026-10-09",
+      "file": "Adeep_AG_PurchaseProof_2026-10-09.json"
+    }
+  ],
+  "Amaan Pathan": [
+    {
+      "type": "PurchaseProof",
+      "points": 0,
+      "title": "PurchaseProof_pack of 2 ShrikeFi_Amaan Pathan",
+      "link": "https://drive.google.com/file/d/1UEn-QpIAYLxYL8V42cCf-1WJR7T8QCbP/view?usp=sharing",
+      "date": "2026-10-08",
+      "file": "Amaan_Pathan_PurchaseProof_2026-10-08.json"
+    }
+  ],
   "ANNESTIO PIETY CASTANHA": [
     {
       "type": "PurchaseProof",
@@ -37,6 +57,14 @@
       "link": "https://docs.google.com/document/d/1xIFamwjXaCcTN_OIHSBaBIrnRZicWH-KDGStICfz7Ws/edit?usp=sharing",
       "date": "2026-10-04",
       "file": "Harshit_Kumar_Sharma_PurchaseProof_2026-10-04.json"
+    },
+    {
+      "type": "X",
+      "points": 40,
+      "title": "Vicharak Fellowship Kickoff Post",
+      "link": "https://docs.google.com/document/d/1wtRL2N-kqDj2T9i16jaijWDE3giKfRZs6k4EvHBKFEA/edit?usp=sharing",
+      "date": "2026-10-08",
+      "file": "Harshit_Kumar_Sharma_X_2026-10-08.json"
     }
   ],
   "Nathan Mathews": [
@@ -47,6 +75,16 @@
       "link": "https://drive.google.com/file/d/146DsJhh7G3UF64aGUQF1zYtZObXwhnUl/view",
       "date": "2026-10-03",
       "file": "Nathan_Mathews_PurchaseProof_2026-10-03.json"
+    }
+  ],
+  "Pranav Dhole": [
+    {
+      "type": "PurchaseProof",
+      "points": 0,
+      "title": "PurchaseProof",
+      "link": "https://ibb.co/4vSJLtb",
+      "date": "2026-10-7",
+      "file": "Pranav_Dhole_PurchaseProf_2026-10-7.json"
     }
   ],
   "Revand Pradeep": [
